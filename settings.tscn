@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://b6jx38dldg3om"]
+
+[ext_resource type="Texture2D" uid="uid://c73rtcelpb1l1" path="res://assets/menu/flashlight.tres" id="1_nkug2"]
+[ext_resource type="Script" uid="uid://cl32ss1qu88ui" path="res://scripts/point_light_2d.gd" id="2_3ykye"]
+[ext_resource type="FontFile" uid="uid://2sbnayq5va72" path="res://assets/menu/FontdinerSwanky-Regular.ttf" id="3_gc0em"]
+[ext_resource type="Script" uid="uid://lv66qbo8c2fv" path="res://fullscreen_control.gd" id="4_cj1lu"]
+
+[sub_resource type="Theme" id="Theme_f6xyr"]
+default_font = ExtResource("3_gc0em")
+default_font_size = 30
+
+[node name="Settings" type="Control" unique_id=390517657]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Shadow" type="CanvasModulate" parent="." unique_id=2107152364]
+color = Color(0.029506557, 0.029506557, 0.029506557, 1)
+
+[node name="Background placeholder" type="ColorRect" parent="." unique_id=309980538]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.60524577, 0.21231925, 0.07611879, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1042449098]
+position = Vector2(-4, -4)
+scale = Vector2(3.391547, 3.391547)
+energy = 1.4
+texture = ExtResource("1_nkug2")
+script = ExtResource("2_3ykye")
+
+[node name="FullscreenControl" type="CheckButton" parent="." unique_id=991926428]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.5
+offset_top = -27.0
+offset_right = 106.5
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_f6xyr")
+text = "Fullscreen"
+script = ExtResource("4_cj1lu")
+
+[connection signal="toggled" from="FullscreenControl" to="FullscreenControl" method="_on_toggled"]

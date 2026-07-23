@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var d = $"Sprite"
 
 func _physics_process(_delta: float) -> void:
+	if Input.is_key_pressed(KEY_ESCAPE):
+		get_tree().change_scene_to_file("res://menu.tscn")
 	move()
 	look()
 	move_and_slide()

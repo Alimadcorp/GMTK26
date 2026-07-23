@@ -1,5 +1,18 @@
 [gd_scene format=3 uid="uid://dr4wt6exncjba"]
 
+[ext_resource type="Texture2D" uid="uid://c73rtcelpb1l1" path="res://assets/menu/flashlight.tres" id="1_ouk20"]
+[ext_resource type="Script" uid="uid://cl32ss1qu88ui" path="res://scripts/point_light_2d.gd" id="2_mae5d"]
+[ext_resource type="Script" uid="uid://csg8qvjwr21ny" path="res://scripts/start.gd" id="3_ecwwl"]
+[ext_resource type="Script" uid="uid://5f4yre33wgpc" path="res://scripts/settings.gd" id="4_l48gv"]
+[ext_resource type="Texture2D" uid="uid://d0o0rfsauunc5" path="res://assets/menu/button_rectangle_depth_gradient.svg" id="5_kk3ma"]
+[ext_resource type="Script" uid="uid://dd4id2ry7kd0o" path="res://scripts/quit.gd" id="6_kk3ma"]
+[ext_resource type="Texture2D" uid="uid://b203uk7bd1rua" path="res://assets/menu/button_rectangle_depth_flat.svg" id="6_nrnbx"]
+[ext_resource type="FontFile" uid="uid://2sbnayq5va72" path="res://assets/menu/FontdinerSwanky-Regular.ttf" id="7_ecwwl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_epuwg"]
+font = ExtResource("7_ecwwl")
+font_size = 40
+
 [node name="Control" type="Control" unique_id=612308500]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +20,95 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Shadow" type="CanvasModulate" parent="." unique_id=1855643198]
+color = Color(0.029506557, 0.029506557, 0.029506557, 1)
+
+[node name="Background placeholder" type="ColorRect" parent="." unique_id=669191414]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.60524577, 0.21231925, 0.07611879, 1)
+
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=1986460657]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -61.0
+offset_right = 150.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 23
+
+[node name="Start" type="TextureButton" parent="Buttons" unique_id=589541392]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+texture_normal = ExtResource("5_kk3ma")
+texture_pressed = ExtResource("6_nrnbx")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_ecwwl")
+
+[node name="Start" type="Label" parent="Buttons/Start" unique_id=1883399691]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 8.0
+offset_right = 206.0
+offset_bottom = 69.0
+text = "Start"
+label_settings = SubResource("LabelSettings_epuwg")
+
+[node name="Settings" type="TextureButton" parent="Buttons" unique_id=1245215250]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+texture_normal = ExtResource("5_kk3ma")
+texture_pressed = ExtResource("6_nrnbx")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_l48gv")
+
+[node name="Settings" type="Label" parent="Buttons/Settings" unique_id=911593578]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 5.0
+offset_right = 247.0
+offset_bottom = 66.0
+text = "Settings"
+label_settings = SubResource("LabelSettings_epuwg")
+
+[node name="Quit" type="TextureButton" parent="Buttons" unique_id=1963349225]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+texture_normal = ExtResource("5_kk3ma")
+texture_pressed = ExtResource("6_nrnbx")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("6_kk3ma")
+
+[node name="Quit" type="Label" parent="Buttons/Quit" unique_id=8228095]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 8.0
+offset_right = 193.0
+offset_bottom = 69.0
+text = "Quit"
+label_settings = SubResource("LabelSettings_epuwg")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=2043332442]
+position = Vector2(-4, -4)
+scale = Vector2(3.391547, 3.391547)
+energy = 1.4
+texture = ExtResource("1_ouk20")
+script = ExtResource("2_mae5d")
+
+[connection signal="pressed" from="Buttons/Start" to="Buttons/Start" method="_on_pressed"]
+[connection signal="pressed" from="Buttons/Settings" to="Buttons/Settings" method="_on_pressed"]
+[connection signal="pressed" from="Buttons/Quit" to="Buttons/Quit" method="_on_pressed"]
