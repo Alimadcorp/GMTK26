@@ -4,18 +4,32 @@
 [ext_resource type="Texture2D" uid="uid://cg0y7yqc6nwkr" path="res://set.png" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://bdqlr00r0hp8y" path="res://player.gd" id="2_feb5d"]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_feb5d"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_feb5d"]
 texture = ExtResource("1_e2o6t")
 10:1/0 = 0
 2:1/0 = 0
+2:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_feb5d")
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_mwb40"]
+occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_feb5d")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_44c3d"]
-radius = 16.03122
+radius = 12.0
+
+[sub_resource type="Gradient" id="Gradient_feb5d"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_44c3d"]
+gradient = SubResource("Gradient_feb5d")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0.5)
 
 [node name="Game" type="Node2D" unique_id=1445309254]
 
@@ -25,13 +39,25 @@ tile_set = SubResource("TileSet_mwb40")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=376559981]
 script = ExtResource("2_feb5d")
+speed = 150.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=962001145]
+[node name="Shape" type="CollisionShape2D" parent="Player" unique_id=962001145]
 shape = SubResource("CircleShape2D_44c3d")
 
 [node name="Direction" type="Sprite2D" parent="Player" unique_id=2117451438]
-scale = Vector2(0.25, 0.25)
+light_mask = 2
+position = Vector2(0, -1.1920929e-07)
+scale = Vector2(0.18750001, 0.18749999)
 texture = ExtResource("1_80nbo")
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1012278810]
+[node name="Light" type="PointLight2D" parent="Player" unique_id=996170184]
+position = Vector2(1.5258789e-05, -0.99998474)
+scale = Vector2(5.21875, 5.21875)
+energy = 1.25
+shadow_enabled = true
+shadow_filter = 1
+texture = SubResource("GradientTexture2D_44c3d")
+
+[node name="Camera" type="Camera2D" parent="Player" unique_id=1012278810]
+zoom = Vector2(3, 3)
 position_smoothing_enabled = true
