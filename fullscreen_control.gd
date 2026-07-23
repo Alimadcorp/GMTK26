@@ -6,3 +6,7 @@ func _on_toggled(toggled_on: bool) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://menu.tscn")

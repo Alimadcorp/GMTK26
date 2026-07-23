@@ -107,6 +107,7 @@ position = Vector2(-4, -4)
 scale = Vector2(3.391547, 3.391547)
 energy = 1.4
 texture = ExtResource("1_ouk20")
+texture_scale = 1.66
 script = ExtResource("2_mae5d")
 
 [connection signal="pressed" from="Buttons/Start" to="Buttons/Start" method="_on_pressed"]

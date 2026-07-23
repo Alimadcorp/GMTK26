@@ -34,6 +34,7 @@ position = Vector2(-4, -4)
 scale = Vector2(3.391547, 3.391547)
 energy = 1.4
 texture = ExtResource("1_nkug2")
+texture_scale = 1.66
 script = ExtResource("2_3ykye")
 
 [node name="FullscreenControl" type="CheckButton" parent="." unique_id=991926428]
@@ -53,4 +54,20 @@ theme = SubResource("Theme_f6xyr")
 text = "Fullscreen"
 script = ExtResource("4_cj1lu")
 
+[node name="Button" type="Button" parent="." unique_id=1437148200]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -26.0
+offset_top = -128.0
+offset_right = 19.0
+offset_bottom = -97.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back"
+
 [connection signal="toggled" from="FullscreenControl" to="FullscreenControl" method="_on_toggled"]
+[connection signal="pressed" from="Button" to="FullscreenControl" method="_on_button_pressed"]
