@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://54tl67nc4qa2"]
+
+[ext_resource type="AudioStream" uid="uid://dral2hggo3s0y" path="res://assets/ambient.mp3" id="1_80nbo"]
+
+[node name="Game" type="Node2D" unique_id=1265723192]
+
+[node name="Ambient" type="AudioStreamPlayer2D" parent="." unique_id=931523834]
+stream = ExtResource("1_80nbo")
+autoplay = true
+max_distance = 4096.0
+attenuation = 0.00012637513
+
+[node name="Exp" type="AudioStreamPlayer2D" parent="." unique_id=939768940]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1430420417]
+color = Color(0.09239707, 0.09239706, 0.09239706, 1)
+
+[node name="Base" type="TileMapLayer" parent="." unique_id=2091513461]
+
+[node name="Objects" type="TileMapLayer" parent="." unique_id=1682903240]

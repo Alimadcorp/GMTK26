@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c73rtcelpb1l1" path="res://assets/menu/flashlight.tres" id="1_nkug2"]
 [ext_resource type="Script" uid="uid://cl32ss1qu88ui" path="res://scripts/point_light_2d.gd" id="2_3ykye"]
 [ext_resource type="FontFile" uid="uid://2sbnayq5va72" path="res://assets/menu/FontdinerSwanky-Regular.ttf" id="3_gc0em"]
-[ext_resource type="Script" uid="uid://lv66qbo8c2fv" path="res://fullscreen_control.gd" id="4_cj1lu"]
+[ext_resource type="Script" uid="uid://lv66qbo8c2fv" path="res://scripts/fullscreen_control.gd" id="4_cj1lu"]
 
 [sub_resource type="Theme" id="Theme_f6xyr"]
 default_font = ExtResource("3_gc0em")

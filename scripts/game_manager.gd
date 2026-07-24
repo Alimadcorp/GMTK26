@@ -1,43 +1,65 @@
 extends Node2D
 
-@export var fuse_time: float = 120.0
+@export var max_time: float = 120.0
 
-var bomb_count: int = 4
-var defused_count: int = 0
+var bombs: int = 4
+var done: int = 0
 var state: String = "intro"
-var bomb_timer: float
+var time: float
+var pb: AudioStreamGeneratorPlayback
+var phase: float = 0.0
+var next_b: float = 0.0
+var hz: float = 44100.0
+var freq: float = 880.0
 
-@onready var audio_tick = $Exp
+@onready var amb = $Ambient
+@onready var exp = $Exp
+@onready var mod = $CanvasModulate
+@onready var p = $Player
 
 func _ready() -> void:
-	bomb_timer = fuse_time
-	start_intro()
-
-func start_intro() -> void:
+	time = max_time
+	exp.stream = AudioStreamGenerator.new()
+	exp.stream.mix_rate = hz
+	exp.play()
+	pb = exp.get_stream_playback()
+	mod.color = Color(1, 1, 1, 1)
 	await get_tree().create_timer(5.0).timeout
-	$Ambient.stop()
+	amb.stop()
+	mod.color = Color(0.05, 0.05, 0.05, 1)
 	state = "dark"
+	p.tut("torch")
 
-func trigger_sabotage() -> void:
+func sab() -> void:
 	if state == "dark":
 		state = "ticking"
-		audio_tick.play()
+		p.no_tut()
+		next_b = 1.0
 
 func _process(delta: float) -> void:
 	if state == "ticking":
-		bomb_timer -= delta
-		var ratio = 1.0 - (bomb_timer / fuse_time)
-		audio_tick.pitch_scale = clamp(1.0 + ratio * 1.5, 1.0, 2.5)
-		
-		if bomb_timer <= 0.0:
-			explode_all()
+		time -= delta
+		next_b -= delta
+		if next_b <= 0.0:
+			beep()
+			var r = time / max_time
+			next_b = max(0.1, r * 2.0)
+		if time <= 0.0:
+			boom()
 
-func defuse_bomb() -> void:
-	defused_count += 1
-	if defused_count >= bomb_count:
+func beep() -> void:
+	var f: int = int(hz * 0.1)
+	for i in range(f):
+		phase += freq / hz
+		var v = sin(phase * 6.28318)
+		pb.push_frame(Vector2(v, v))
+
+func defuse() -> void:
+	done += 1
+	if done >= bombs:
 		state = "won"
-		audio_tick.stop()
+		exp.stop()
 
-func explode_all() -> void:
+func boom() -> void:
 	state = "lost"
 	get_tree().reload_current_scene()
