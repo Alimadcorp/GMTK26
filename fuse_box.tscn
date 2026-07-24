@@ -1,19 +1,19 @@
-[gd_scene format=3 uid="uid://duc2knnnsev51"]
+[gd_scene format=3 uid="uid://bpjhiubnrlbte"]
 
-[ext_resource type="Script" uid="uid://c6fqp37psjxdn" path="res://scripts/item.gd" id="1_4fn8o"]
-[ext_resource type="Texture2D" uid="uid://g7etbabxk55a" path="res://assets/bomb.png" id="2_4fn8o"]
+[ext_resource type="Script" uid="uid://c6fqp37psjxdn" path="res://scripts/item.gd" id="1_ygyh0"]
+[ext_resource type="Texture2D" uid="uid://uuq62r25pcej" path="res://assets/fuse_box.png" id="2_ygyh0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_44c3d"]
-radius = 13.0
+radius = 17.0
 
 [node name="Item" type="Area2D" unique_id=880123044]
-script = ExtResource("1_4fn8o")
-id = "bomb"
+script = ExtResource("1_ygyh0")
+id = "fuse"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1180490243]
 position = Vector2(-4.7683716e-07, 0)
 scale = Vector2(0.06713438, 0.067134365)
-texture = ExtResource("2_4fn8o")
+texture = ExtResource("2_ygyh0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=556144503]
 shape = SubResource("CircleShape2D_44c3d")

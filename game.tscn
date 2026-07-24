@@ -1,8 +1,19 @@
 [gd_scene format=3 uid="uid://54tl67nc4qa2"]
 
 [ext_resource type="AudioStream" uid="uid://dral2hggo3s0y" path="res://assets/ambient.mp3" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://bgb6vsbhgl0i5" path="res://scripts/game_manager.gd" id="1_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://bpjhiubnrlbte" path="res://fuse_box.tscn" id="2_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://oqh5oxx1mkyn" path="res://player.tscn" id="2_feb5d"]
+[ext_resource type="PackedScene" uid="uid://enaqed3y0d01" path="res://item.tscn" id="5_7jktm"]
 
 [node name="Game" type="Node2D" unique_id=1265723192]
+script = ExtResource("1_e2o6t")
+
+[node name="FuseBox" parent="." unique_id=880123044 instance=ExtResource("2_fc0e3")]
+position = Vector2(-464, -330)
+scale = Vector2(6.2, 6.2)
+
+[node name="Player" parent="." unique_id=419964917 instance=ExtResource("2_feb5d")]
 
 [node name="Ambient" type="AudioStreamPlayer2D" parent="." unique_id=931523834]
 stream = ExtResource("1_80nbo")
@@ -18,3 +29,7 @@ color = Color(0.09239707, 0.09239706, 0.09239706, 1)
 [node name="Base" type="TileMapLayer" parent="." unique_id=2091513461]
 
 [node name="Objects" type="TileMapLayer" parent="." unique_id=1682903240]
+
+[node name="Torch" parent="." unique_id=1392984769 instance=ExtResource("5_7jktm")]
+position = Vector2(804, -37)
+scale = Vector2(6.2172422, 6.2172422)

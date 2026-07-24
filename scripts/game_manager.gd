@@ -13,16 +13,16 @@ var hz: float = 44100.0
 var freq: float = 880.0
 
 @onready var amb = $Ambient
-@onready var exp = $Exp
+@onready var snd = $Exp
 @onready var mod = $CanvasModulate
 @onready var p = $Player
 
 func _ready() -> void:
 	time = max_time
-	exp.stream = AudioStreamGenerator.new()
-	exp.stream.mix_rate = hz
-	exp.play()
-	pb = exp.get_stream_playback()
+	snd.stream = AudioStreamGenerator.new()
+	snd.stream.mix_rate = hz
+	snd.play()
+	pb = snd.get_stream_playback()
 	mod.color = Color(1, 1, 1, 1)
 	await get_tree().create_timer(5.0).timeout
 	amb.stop()
@@ -58,7 +58,7 @@ func defuse() -> void:
 	done += 1
 	if done >= bombs:
 		state = "won"
-		exp.stop()
+		snd.stop()
 
 func boom() -> void:
 	state = "lost"
