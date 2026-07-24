@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://54tl67nc4qa2"]
 
 [ext_resource type="Texture2D" uid="uid://rp1enx0ruy8v" path="res://assets/Tilelist.png" id="1_fc0e3"]
+[ext_resource type="Script" uid="uid://bgb6vsbhgl0i5" path="res://scripts/game_manager.gd" id="1_ryrav"]
 [ext_resource type="Texture2D" uid="uid://cg1p8lfhfgerm" path="res://assets/Tilelist Objects.png" id="2_7jktm"]
 [ext_resource type="Script" uid="uid://bdqlr00r0hp8y" path="res://scripts/player.gd" id="2_feb5d"]
 [ext_resource type="Texture2D" uid="uid://bjr12x1y48d5h" path="res://assets/player.png" id="4_7jktm"]
@@ -5984,6 +5985,26 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
 [node name="Game" type="Node2D" unique_id=1445309254]
+script = ExtResource("1_ryrav")
+
+[node name="Ambient" type="AudioStreamPlayer2D" parent="." unique_id=554371105]
+position = Vector2(198.00002, -1917)
+rotation = -1.5707964
+scale = Vector2(70.72224, 70.72224)
+autoplay = true
+max_distance = 4096.0
+attenuation = 1e-05
+
+[node name="Events" type="Node2D" parent="." unique_id=1924370933]
+position = Vector2(198.00002, -1917)
+rotation = -1.5707964
+scale = Vector2(70.72224, 70.72224)
+
+[node name="Exp" type="AudioStreamPlayer2D" parent="Events" unique_id=645757128]
+scale = Vector2(0.99999994, 0.99999994)
+autoplay = true
+max_distance = 4096.0
+attenuation = 1e-05
 
 [node name="Modulate" type="CanvasModulate" parent="." unique_id=517775995]
 color = Color(0.054860994, 0.05486101, 0.05486098, 1)

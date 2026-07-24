@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://duc2knnnsev51"]
+
+[ext_resource type="Script" uid="uid://bgvw8fy78whxy" path="res://bomb.gd" id="1_573fp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_44c3d"]
+
+[node name="Bomb" type="Area2D" unique_id=800690021]
+script = ExtResource("1_573fp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1780068142]
+shape = SubResource("CircleShape2D_44c3d")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1045645588]
