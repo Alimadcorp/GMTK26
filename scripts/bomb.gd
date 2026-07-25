@@ -10,7 +10,8 @@ func _ready() -> void:
 	body_exited.connect(_out)
 
 func use() -> void:
-	# TODO: ok guys this is not the right way, when the player left clocks on a bomb
+	# TODO: ok guys this is not the right way, 
+	# when the player left clocks on a bomb which has req == 'pliers'
 	# it is actually a left click on the bomb UI
 	# we have to determine which wire was clicked, and if that specific wire correct
 	# then we make the bomb diffused (call game_manager.diffuse())
@@ -24,11 +25,14 @@ func use() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		body.toggle_bomb()
+		if(body.has("key") and req == "key"):
+			get_tree().current_scene.defuse()
+		else:
+			body.toggle_bomb(true)
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		body.toggle_bomb()
+		body.toggle_bomb(false)
 
 func _in(b: Node2D) -> void:
 	if b.is_in_group("player"):

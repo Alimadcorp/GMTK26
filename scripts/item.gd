@@ -12,6 +12,8 @@ func _ready() -> void:
 		add_to_group("torch_item")
 	elif id == "pliers":
 		add_to_group("pliers_item")
+	elif id == "key":
+		add_to_group("key_item")
 	body_entered.connect(_in)
 	body_exited.connect(_out)
 

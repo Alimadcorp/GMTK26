@@ -40,7 +40,7 @@ func _ready() -> void:
 	p.spd = p.speed
 	
 	amb.stop()
-	mod.color = Color(0.05, 0.05, 0.05, 1)
+	mod.color = Color(0.03, 0.03, 0.03, 1)
 	state = "dark"
 	p.tut("torch")
 

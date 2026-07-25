@@ -1,19 +1,20 @@
-[gd_scene format=3 uid="uid://dmsgwhosupamw"]
+[gd_scene format=3 uid="uid://bdgbuuc3nyq70"]
 
-[ext_resource type="Script" uid="uid://c6fqp37psjxdn" path="res://scripts/item.gd" id="1_yq5mv"]
-[ext_resource type="Texture2D" uid="uid://dgmwh33pq6frl" path="res://assets/bomb/plierclose.png" id="2_yq5mv"]
+[ext_resource type="Script" uid="uid://c6fqp37psjxdn" path="res://scripts/item.gd" id="1_p0yg6"]
+[ext_resource type="Texture2D" uid="uid://2lvnvmir2mbl" path="res://assets/key.png" id="2_p0yg6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_44c3d"]
 radius = 897.0557
 
 [node name="Item" type="Area2D" unique_id=880123044 groups=["item"]]
-script = ExtResource("1_yq5mv")
-id = "pliers"
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_p0yg6")
+id = "key"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1180490243]
 position = Vector2(-4.7683716e-07, 0)
-scale = Vector2(32, 32)
-texture = ExtResource("2_yq5mv")
+scale = Vector2(1.525, 1.525)
+texture = ExtResource("2_p0yg6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=556144503]
 shape = SubResource("CircleShape2D_44c3d")

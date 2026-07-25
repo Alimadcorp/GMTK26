@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed: float = 1000.0
 var spd = 0.0
-@export var bat: float = 100.0
+@export var bat: float = 300.0
 
 @onready var d = $Sprite
 @onready var comp = $Compass
@@ -142,6 +142,9 @@ func has_item(item_id: String) -> bool:
 		return true
 	return false
 
+func has(item_id: String) -> bool:
+	return has_item(item_id)
+
 func consume_item(item_id: String) -> void:
 	if is_instance_valid(l_item) and l_item.get("id") == item_id:
 		l_item.queue_free()
@@ -195,5 +198,5 @@ func upd_comp() -> void:
 func expl():
 	$CanvasLayer/VideoStreamPlayer.play()
 
-func toggle_bomb():
-	$CanvasLayer/bomb.visible = !$CanvasLayer/bomb.visible
+func toggle_bomb(val):
+	$CanvasLayer/bomb.visible = val

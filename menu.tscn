@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dr4wt6exncjba"]
 
+[ext_resource type="Texture2D" uid="uid://dkac4lep2yisw" path="res://white.png" id="1_iqepy"]
 [ext_resource type="Texture2D" uid="uid://c73rtcelpb1l1" path="res://assets/menu/flashlight.tres" id="1_ouk20"]
 [ext_resource type="Script" uid="uid://cl32ss1qu88ui" path="res://scripts/point_light_2d.gd" id="2_mae5d"]
 [ext_resource type="Script" uid="uid://csg8qvjwr21ny" path="res://scripts/start.gd" id="3_ecwwl"]
@@ -8,41 +9,38 @@
 [ext_resource type="Script" uid="uid://dd4id2ry7kd0o" path="res://scripts/quit.gd" id="6_kk3ma"]
 [ext_resource type="Texture2D" uid="uid://b203uk7bd1rua" path="res://assets/menu/button_rectangle_depth_flat.svg" id="6_nrnbx"]
 [ext_resource type="FontFile" uid="uid://2sbnayq5va72" path="res://assets/menu/FontdinerSwanky-Regular.ttf" id="7_ecwwl"]
+[ext_resource type="FontFile" uid="uid://cssl7kt7xmxoh" path="res://assets/bomb/GeistPixel-Regular-VariableFont_ELSH.ttf" id="9_nrnbx"]
+[ext_resource type="Script" uid="uid://c0il3nwhr6yif" path="res://titl.gd" id="11_h1wq0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_epuwg"]
 font = ExtResource("7_ecwwl")
 font_size = 40
 
-[node name="Control" type="Control" unique_id=612308500]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_44c3d"]
+polygon = PackedVector2Array(1, -2, 295, 2, 296, 78, 3, 76)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dwrpx"]
+
+[node name="Control" type="Node2D" unique_id=812795505]
 
 [node name="Shadow" type="CanvasModulate" parent="." unique_id=1855643198]
-color = Color(0.029506557, 0.029506557, 0.029506557, 1)
+color = Color(0.066070534, 0.06607054, 0.066070504, 1)
 
-[node name="Background placeholder" type="ColorRect" parent="." unique_id=669191414]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Black" type="Sprite2D" parent="." unique_id=854929332]
+position = Vector2(630.9999, 359.00003)
+scale = Vector2(14.375, 8.515625)
+texture = ExtResource("1_iqepy")
 
 [node name="Buttons" type="VBoxContainer" parent="." unique_id=1986460657]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -61.0
-offset_right = 150.0
-offset_bottom = 225.0
+offset_left = 425.0
+offset_top = 233.0
+offset_right = 725.0
+offset_bottom = 519.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 23
@@ -65,6 +63,9 @@ offset_bottom = 69.0
 text = "Start"
 label_settings = SubResource("LabelSettings_epuwg")
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Buttons/Start" unique_id=459143201]
+occluder = SubResource("OccluderPolygon2D_44c3d")
+
 [node name="Settings" type="TextureButton" parent="Buttons" unique_id=1245215250]
 custom_minimum_size = Vector2(300, 80)
 layout_mode = 2
@@ -73,6 +74,9 @@ texture_pressed = ExtResource("6_nrnbx")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("4_l48gv")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Buttons/Settings" unique_id=711088366]
+occluder = SubResource("OccluderPolygon2D_44c3d")
 
 [node name="Settings" type="Label" parent="Buttons/Settings" unique_id=911593578]
 layout_mode = 0
@@ -92,6 +96,9 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("6_kk3ma")
 
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="Buttons/Quit" unique_id=1674115367]
+occluder = SubResource("OccluderPolygon2D_44c3d")
+
 [node name="Quit" type="Label" parent="Buttons/Quit" unique_id=8228095]
 layout_mode = 0
 offset_left = 105.0
@@ -102,12 +109,51 @@ text = "Quit"
 label_settings = SubResource("LabelSettings_epuwg")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=2043332442]
-position = Vector2(-4, -4)
+position = Vector2(582, 188)
 scale = Vector2(3.391547, 3.391547)
-energy = 1.4
+energy = 1.5
+shadow_enabled = true
+shadow_color = Color(0.63719434, 0.32010862, 0.28719968, 0.31764707)
+shadow_filter = 1
+shadow_filter_smooth = 4.5
 texture = ExtResource("1_ouk20")
-texture_scale = 1.66
+texture_scale = 0.45
 script = ExtResource("2_mae5d")
+
+[node name="Label" type="Label" parent="." unique_id=1709863637]
+offset_left = 35.0
+offset_top = 366.0
+offset_right = 376.0
+offset_bottom = 629.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_nrnbx")
+theme_override_font_sizes/font_size = 34
+text = "WASD to move
+Click to pick
+Q to drop
+T for torch
+E to interact"
+
+[node name="titl" type="Node2D" parent="." unique_id=2124680337]
+position = Vector2(216.5, 62)
+script = ExtResource("11_h1wq0")
+
+[node name="Label" type="Label" parent="titl" unique_id=1576858959]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_right = 734.0
+offset_bottom = 128.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_ecwwl")
+theme_override_font_sizes/font_size = 84
+text = "TITLE GO HERE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="titl" unique_id=1502311356]
+occluder = SubResource("OccluderPolygon2D_dwrpx")
 
 [connection signal="pressed" from="Buttons/Start" to="Buttons/Start" method="_on_pressed"]
 [connection signal="pressed" from="Buttons/Settings" to="Buttons/Settings" method="_on_pressed"]
