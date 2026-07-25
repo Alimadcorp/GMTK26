@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://8fuhpm1slseu"]
+
+[ext_resource type="Script" uid="uid://c6fqp37psjxdn" path="res://scripts/item.gd" id="1_yq5mv"]
+[ext_resource type="Texture2D" uid="uid://dgmwh33pq6frl" path="res://assets/bomb/plierclose.png" id="2_yq5mv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_44c3d"]
+radius = 897.0557
+
+[node name="Item" type="Area2D" unique_id=880123044]
+script = ExtResource("1_yq5mv")
+id = "pliers"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1180490243]
+position = Vector2(-4.7683716e-07, 0)
+scale = Vector2(32, 32)
+texture = ExtResource("2_yq5mv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=556144503]
+shape = SubResource("CircleShape2D_44c3d")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

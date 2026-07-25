@@ -12,7 +12,7 @@ var spd = 0.0
 
 var l_item: Node2D = null
 var torch_item: Node2D = null
-
+var pliers = false
 var on: bool = false
 var tgt: Node2D = null
 var tut_tgt: Node2D = null
@@ -84,10 +84,9 @@ func pick(i: Node2D) -> void:
 
 	var item_id: String = i.get("id") if i.get("id") else ""
 
-	# 1. TORCH LOGIC -> Exclusively Right Hand
 	if item_id == "torch":
 		if is_instance_valid(torch_item):
-			return # Right hand is already holding torch
+			return
 		
 		torch_item = i
 		torch_item.reparent(r_hand)
@@ -99,8 +98,9 @@ func pick(i: Node2D) -> void:
 		tut("fuse")
 		tgt = null
 		return
+	elif item_id == "pliers":
+		pliers = true
 
-	# 2. OTHER ITEMS LOGIC -> Left Hand (Swap if occupied)
 	if is_instance_valid(l_item):
 		drop_left_hand()
 

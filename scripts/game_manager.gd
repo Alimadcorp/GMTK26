@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var max_time: float = 30.0
+@export var max_time: float = 300.0
 
 @export var freq: float = 1200.0
 

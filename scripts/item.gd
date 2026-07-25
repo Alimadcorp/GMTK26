@@ -6,14 +6,14 @@ extends Area2D
 
 var plr
 
-
 func _ready() -> void:
 	add_to_group("item")
 	if id == "torch":
 		add_to_group("torch_item")
+	elif id == "pliers":
+		add_to_group("pliers_item")
 	body_entered.connect(_in)
 	body_exited.connect(_out)
-
 
 func _in(b: Node2D) -> void:
 	if b.is_in_group("player"):
