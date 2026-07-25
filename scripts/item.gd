@@ -24,12 +24,3 @@ func _out(b: Node2D) -> void:
 	if b.is_in_group("player") and b.tgt == self:
 		b.tgt = null
 		spr.modulate = Color(1, 1, 1, 1)
-
-
-func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		body.toggle_bomb()
-
-func _on_body_exited(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		body.toggle_bomb()

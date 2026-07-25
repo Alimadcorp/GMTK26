@@ -1,6 +1,16 @@
 extends Node2D
 
-@export var max_time: float = 120.0
+@export var max_time: float = 50.0
+
+@export var freq: float = 880.0
+
+@export var start_beep_duration: float = 0.20
+@export var end_beep_duration: float = 0.04
+
+@export var start_beep_delay: float = 1.2
+@export var end_beep_delay: float = 0.1
+
+@export var stages_count: int = 4
 
 var bombs: int = 4
 var done: int = 0
@@ -10,7 +20,6 @@ var pb: AudioStreamGeneratorPlayback
 var phase: float = 0.0
 var next_b: float = 0.0
 var hz: float = 44100.0
-var freq: float = 880.0
 
 @onready var amb = $Ambient
 @onready var snd = $Exp
@@ -20,7 +29,6 @@ var freq: float = 880.0
 func _ready() -> void:
 	time = max_time
 	
-	# ho lee beep generator
 	var generator = AudioStreamGenerator.new()
 	generator.mix_rate = hz
 	generator.buffer_length = 0.5
@@ -28,6 +36,8 @@ func _ready() -> void:
 	snd.play()
 	await get_tree().create_timer(5.0).timeout
 	pb = snd.get_stream_playback()
+	$Lout.play()
+	p.spd = p.speed
 	
 	amb.stop()
 	mod.color = Color(0.05, 0.05, 0.05, 1)
@@ -39,27 +49,35 @@ func sab() -> void:
 		state = "ticking"
 		p.no_tut()
 		next_b = 0.1
+		p.tut("oh_shit")
 
 func _process(delta: float) -> void:
 	if state == "ticking":
 		time -= delta
 		next_b -= delta
+		
 		if next_b <= 0.0:
-			beep()
-			var r = time / max_time
-			next_b = max(0.08, r * 1.5)
+			var r: float = clamp(time / max_time, 0.0, 1.0)
+			var stage_progress: float = 1.0 - r
+			var step: float = floor(stage_progress * float(stages_count)) / float(max(1, stages_count - 1))
+			step = clamp(step, 0.0, 1.0)
+			var current_duration = lerp(start_beep_duration, end_beep_duration, step)
+			var current_delay = lerp(start_beep_delay, end_beep_delay, step)
+			
+			beep(current_duration)
+			next_b = current_delay
+			
 		if time <= 0.0:
 			boom()
 
-func beep() -> void:
-	print("beeeeeep")
+func beep(duration: float) -> void:
 	if not pb:
 		pb = snd.get_stream_playback() if snd.playing else null
 		if not pb:
 			return
 
 	phase = 0.0
-	var frames_to_push: int = int(hz * 0.05)
+	var frames_to_push: int = int(hz * duration)
 	var available_frames: int = pb.get_frames_available()
 	
 	var count = min(frames_to_push, available_frames)

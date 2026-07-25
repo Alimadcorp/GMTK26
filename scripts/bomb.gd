@@ -17,6 +17,14 @@ func use() -> void:
 			done = true
 			get_tree().current_scene.defuse()
 
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		body.toggle_bomb()
+
+func _on_body_exited(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		body.toggle_bomb()
+
 func _in(b: Node2D) -> void:
 	if b.is_in_group("player"):
 		near = true

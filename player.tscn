@@ -2,9 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://bjr12x1y48d5h" path="res://assets/player.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://bdqlr00r0hp8y" path="res://scripts/player.gd" id="1_onrkg"]
+[ext_resource type="Shader" uid="uid://dshv06yn78bbi" path="res://compass.gdshader" id="2_sweqy"]
 [ext_resource type="Texture2D" uid="uid://b0uvsk7bd4x2e" path="res://assets/pointer_toon_a.png" id="4_hqtel"]
 [ext_resource type="Texture2D" uid="uid://dgkk220rcjt86" path="res://assets/bomb/pngkey.com-csgo-bomb-png-8268571.png" id="5_2hs0m"]
 [ext_resource type="FontFile" uid="uid://cssl7kt7xmxoh" path="res://assets/bomb/GeistPixel-Regular-VariableFont_ELSH.ttf" id="6_1jxqw"]
+[ext_resource type="VideoStream" uid="uid://ccr5di46jdy58" path="res://assets/exp.ogv" id="7_1jxqw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_44c3d"]
 radius = 126.81088
@@ -18,11 +20,16 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2hs0m"]
+shader = ExtResource("2_sweqy")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sweqy"]
+shader = ExtResource("2_sweqy")
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ifeun"]
 
 [node name="Player" type="CharacterBody2D" unique_id=419964917 groups=["player"]]
 script = ExtResource("1_onrkg")
-spd = 1000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=686461135]
 shape = SubResource("CircleShape2D_44c3d")
@@ -38,10 +45,12 @@ texture = SubResource("GradientTexture2D_i3pqv")
 texture_scale = 50.0
 
 [node name="Compass" type="Node2D" parent="." unique_id=1352515493]
+visible = false
 position = Vector2(4.7683716e-07, 464.00003)
 scale = Vector2(0.99999994, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Compass" unique_id=1249191226]
+material = SubResource("ShaderMaterial_2hs0m")
 rotation = 2.3561945
 scale = Vector2(1.7242316, 1.8777418)
 texture = ExtResource("4_hqtel")
@@ -61,6 +70,7 @@ position = Vector2(150.95523, 156.78732)
 zoom = Vector2(0.4, 0.4)
 
 [node name="Label" type="Label" parent="Camera2D" unique_id=300141399]
+material = SubResource("ShaderMaterial_sweqy")
 anchors_preset = -1
 anchor_right = 0.132
 anchor_bottom = 0.026
@@ -120,3 +130,11 @@ theme_override_font_sizes/font_size = 128
 text = "3:00"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="CanvasLayer" unique_id=786057044]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("7_1jxqw")
