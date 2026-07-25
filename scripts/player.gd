@@ -12,9 +12,6 @@ var on: bool = false
 var tgt: Node2D = null
 var tut_tgt: Node2D = null
 
-func _ready() -> void:
-	add_to_group("player")
-
 func _physics_process(delta: float) -> void:
 	if Input.is_key_pressed(KEY_ESCAPE):
 		get_tree().change_scene_to_file("res://menu.tscn")
@@ -38,13 +35,13 @@ func look() -> void:
 	d.look_at(get_global_mouse_position())
 
 func keys() -> void:
-	if Input.is_key_pressed(KEY_T):
+	if Input.is_action_just_pressed("toggle_torch"):
 		if "torch" in inv:
 			on = !on
 			light.visible = on
-	if Input.is_key_pressed(KEY_Q):
+	if Input.is_action_just_pressed("drop_item"):
 		drop()
-	if Input.is_key_pressed(KEY_E):
+	if Input.is_action_just_pressed("interact"):
 		if tgt and tgt.has_method("use"):
 			tgt.use()
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and tgt:
