@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://b6n4phrm2dccq" path="res://assets/lights-out.mp3" id="6_hve3p"]
 [ext_resource type="Texture2D" uid="uid://cg1p8lfhfgerm" path="res://assets/Tilelist Objects.png" id="6_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://duc2knnnsev51" path="res://bomb.tscn" id="7_eow3j"]
-[ext_resource type="PackedScene" uid="uid://8fuhpm1slseu" path="res://pliers.tscn" id="11_mfdv2"]
+[ext_resource type="PackedScene" uid="uid://dmsgwhosupamw" path="res://pliers.tscn" id="11_mfdv2"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_eow3j"]
 polygon = PackedVector2Array(-64, 64, -28.34497, 64, -26.57341, -29.230751, 64, -29.230751, 64, -64, -64, -64)
@@ -586,9 +586,22 @@ position = Vector2(6117, -4665)
 scale = Vector2(6.2172422, 6.2172422)
 
 [node name="BOMB" parent="." unique_id=1638691013 groups=["item"] instance=ExtResource("7_eow3j")]
-position = Vector2(-1390, 3224.9998)
+position = Vector2(-1322, 3445)
 scale = Vector2(0.2, 0.2)
 
-[node name="Item" parent="." unique_id=611076829 instance=ExtResource("11_mfdv2")]
+[node name="BOMB2" parent="." unique_id=687908609 groups=["item"] instance=ExtResource("7_eow3j")]
+position = Vector2(-11444, 5822)
+scale = Vector2(0.2, 0.2)
+
+[node name="BOMB3" parent="." unique_id=36222250 groups=["item"] instance=ExtResource("7_eow3j")]
+position = Vector2(-7071.0005, -2414.999)
+scale = Vector2(0.2, 0.2)
+
+[node name="BOMB4" parent="." unique_id=824560260 groups=["item"] instance=ExtResource("7_eow3j")]
+position = Vector2(6850.9985, 1083.9998)
+scale = Vector2(0.2, 0.2)
+req = "key"
+
+[node name="Pliers" parent="." unique_id=611076829 instance=ExtResource("11_mfdv2")]
 position = Vector2(11115, 6130.9995)
 scale = Vector2(0.1, 0.1)

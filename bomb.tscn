@@ -8,6 +8,7 @@ radius = 897.0557
 
 [node name="Item" type="Area2D" unique_id=880123044]
 script = ExtResource("1_4fn8o")
+req = "pliers"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1180490243]
 position = Vector2(-4.7683716e-07, 0)
