@@ -12,6 +12,8 @@ var on: bool = false
 var tgt: Node2D = null
 var tut_tgt: Node2D = null
 
+var time = 123
+
 func _physics_process(delta: float) -> void:
 	if Input.is_key_pressed(KEY_ESCAPE):
 		get_tree().change_scene_to_file("res://menu.tscn")
@@ -21,6 +23,10 @@ func _physics_process(delta: float) -> void:
 	upd_bat(delta)
 	upd_comp()
 	move_and_slide()
+
+func _process(delta: float) -> void:
+	var text = str(floor(time/60)) + str(time % 60) 
+	$CanvasLayer/bomb/Panel/TextureRect/Label.text = text
 
 func move() -> void:
 	var x := Input.get_axis("left", "right")
@@ -104,3 +110,6 @@ func upd_comp() -> void:
 		comp.look_at(tut_tgt.global_position)
 	else:
 		comp.visible = false
+
+func toggle_bomb():
+	$CanvasLayer/bomb.visible = !$CanvasLayer/bomb.visible

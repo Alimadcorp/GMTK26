@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uuq62r25pcej"
-path="res://.godot/imported/fuse_box.png-cc929905a18bbd70b63f9f34047a7054.ctex"
+uid="uid://dgkk220rcjt86"
+path="res://.godot/imported/pngkey.com-csgo-bomb-png-8268571.png-c09f1f636a383219107bc120cf432d4c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fuse_box.png"
-dest_files=["res://.godot/imported/fuse_box.png-cc929905a18bbd70b63f9f34047a7054.ctex"]
+source_file="res://assets/bomb/pngkey.com-csgo-bomb-png-8268571.png"
+dest_files=["res://.godot/imported/pngkey.com-csgo-bomb-png-8268571.png-c09f1f636a383219107bc120cf432d4c.ctex"]
 
 [params]
 

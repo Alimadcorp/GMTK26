@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g7etbabxk55a"
-path="res://.godot/imported/bomb.png-5075fb107aafc3f977f7243fcf9539c4.ctex"
+uid="uid://drap07q6c6bmb"
+path="res://.godot/imported/plieropen.png-1e99be047925a982b12e576b9858f7c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bomb.png"
-dest_files=["res://.godot/imported/bomb.png-5075fb107aafc3f977f7243fcf9539c4.ctex"]
+source_file="res://assets/bomb/plieropen.png"
+dest_files=["res://.godot/imported/plieropen.png-1e99be047925a982b12e576b9858f7c6.ctex"]
 
 [params]
 

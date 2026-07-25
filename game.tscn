@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://oqh5oxx1mkyn" path="res://player.tscn" id="2_feb5d"]
 [ext_resource type="PackedScene" uid="uid://enaqed3y0d01" path="res://item.tscn" id="5_7jktm"]
 [ext_resource type="Texture2D" uid="uid://rp1enx0ruy8v" path="res://assets/Tilelist.png" id="5_ryrav"]
+[ext_resource type="PackedScene" uid="uid://duc2knnnsev51" path="res://bomb.tscn" id="7_eow3j"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_eow3j"]
 polygon = PackedVector2Array(-64, 64, -28.34497, 64, -26.57341, -29.230751, 64, -29.230751, 64, -64, -64, -64)
@@ -300,7 +301,7 @@ sources/0 = SubResource("TileSetAtlasSource_eow3j")
 script = ExtResource("1_e2o6t")
 
 [node name="FuseBox" parent="." unique_id=880123044 instance=ExtResource("2_fc0e3")]
-position = Vector2(-464, -330)
+position = Vector2(-421, -1180)
 scale = Vector2(6.2, 6.2)
 
 [node name="Player" parent="." unique_id=419964917 instance=ExtResource("2_feb5d")]
@@ -327,3 +328,7 @@ tile_set = SubResource("TileSet_4fn8o")
 [node name="Torch" parent="." unique_id=1392984769 instance=ExtResource("5_7jktm")]
 position = Vector2(804, -37)
 scale = Vector2(6.2172422, 6.2172422)
+
+[node name="Item" parent="." unique_id=1638691013 instance=ExtResource("7_eow3j")]
+position = Vector2(-683, -617)
+scale = Vector2(0.2, 0.2)
