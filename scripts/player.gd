@@ -192,7 +192,7 @@ func upd_comp() -> void:
 	else:
 		comp.visible = false
 
-func exp():
+func expl():
 	$CanvasLayer/VideoStreamPlayer.play()
 
 func toggle_bomb():

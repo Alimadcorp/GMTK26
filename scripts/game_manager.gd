@@ -1,16 +1,16 @@
 extends Node2D
 
-@export var max_time: float = 50.0
+@export var max_time: float = 30.0
 
-@export var freq: float = 880.0
+@export var freq: float = 1200.0
 
-@export var start_beep_duration: float = 0.20
-@export var end_beep_duration: float = 0.04
+@export var start_beep_duration: float = 0.6
+@export var end_beep_duration: float = 0.1
 
-@export var start_beep_delay: float = 1.2
-@export var end_beep_delay: float = 0.1
+@export var start_beep_delay: float = 1.0
+@export var end_beep_delay: float = 0.2
 
-@export var stages_count: int = 4
+@export var stages_count: int = 5
 
 var bombs: int = 4
 var done: int = 0
@@ -94,4 +94,6 @@ func defuse() -> void:
 
 func boom() -> void:
 	state = "lost"
+	$Player.expl()
+	await get_tree().create_timer(6).timeout
 	get_tree().reload_current_scene()

@@ -560,10 +560,8 @@ volume_db = -2.678
 max_distance = 4096.0
 attenuation = 1e-05
 
-[node name="Exp" type="AudioStreamPlayer2D" parent="." unique_id=488284731]
+[node name="Exp" type="AudioStreamPlayer" parent="." unique_id=1337210773]
 autoplay = true
-max_distance = 4096.0
-attenuation = 1e-05
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1430420417]
 
