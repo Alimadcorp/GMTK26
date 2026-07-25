@@ -19,12 +19,16 @@ var freq: float = 880.0
 
 func _ready() -> void:
 	time = max_time
-	snd.stream = AudioStreamGenerator.new()
-	snd.stream.mix_rate = hz
+	
+	# ho lee beep generator
+	var generator = AudioStreamGenerator.new()
+	generator.mix_rate = hz
+	generator.buffer_length = 0.5
+	snd.stream = generator
 	snd.play()
-	pb = snd.get_stream_playback()
-	mod.color = Color(1, 1, 1, 1)
 	await get_tree().create_timer(5.0).timeout
+	pb = snd.get_stream_playback()
+	
 	amb.stop()
 	mod.color = Color(0.05, 0.05, 0.05, 1)
 	state = "dark"
@@ -34,7 +38,7 @@ func sab() -> void:
 	if state == "dark":
 		state = "ticking"
 		p.no_tut()
-		next_b = 1.0
+		next_b = 0.1
 
 func _process(delta: float) -> void:
 	if state == "ticking":
@@ -43,15 +47,25 @@ func _process(delta: float) -> void:
 		if next_b <= 0.0:
 			beep()
 			var r = time / max_time
-			next_b = max(0.1, r * 2.0)
+			next_b = max(0.08, r * 1.5)
 		if time <= 0.0:
 			boom()
 
 func beep() -> void:
-	var f: int = int(hz * 0.1)
-	for i in range(f):
-		phase += freq / hz
-		var v = sin(phase * 6.28318)
+	print("beeeeeep")
+	if not pb:
+		pb = snd.get_stream_playback() if snd.playing else null
+		if not pb:
+			return
+
+	phase = 0.0
+	var frames_to_push: int = int(hz * 0.05)
+	var available_frames: int = pb.get_frames_available()
+	
+	var count = min(frames_to_push, available_frames)
+	for i in range(count):
+		phase = fmod(phase + freq / hz, 1.0)
+		var v = sin(phase * TAU) * 0.3
 		pb.push_frame(Vector2(v, v))
 
 func defuse() -> void:

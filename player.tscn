@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bjr12x1y48d5h" path="res://assets/player.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://bdqlr00r0hp8y" path="res://scripts/player.gd" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://rj0qq1had4nd" path="res://cone.jpg" id="3_i3pqv"]
+[ext_resource type="Shader" uid="uid://dshv06yn78bbi" path="res://compass.gdshader" id="2_sweqy"]
 [ext_resource type="Texture2D" uid="uid://b0uvsk7bd4x2e" path="res://assets/pointer_toon_a.png" id="4_hqtel"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_44c3d"]
@@ -16,6 +16,12 @@ gradient = SubResource("Gradient_i3pqv")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hqtel"]
+shader = ExtResource("2_sweqy")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ryrav"]
+shader = ExtResource("2_sweqy")
 
 [node name="Player" type="CharacterBody2D" unique_id=419964917 groups=["player"]]
 script = ExtResource("1_onrkg")
@@ -39,6 +45,7 @@ position = Vector2(4.7683716e-07, 464.00003)
 scale = Vector2(0.99999994, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Compass" unique_id=1249191226]
+material = SubResource("ShaderMaterial_hqtel")
 rotation = 2.3561945
 scale = Vector2(1.7242316, 1.8777418)
 texture = ExtResource("4_hqtel")
@@ -48,14 +55,31 @@ position = Vector2(6.749995, 0)
 scale = Vector2(0.6442308, 0.7015873)
 texture = ExtResource("1_4flbx")
 
-[node name="Torch" type="PointLight2D" parent="Sprite" unique_id=731991131]
-position = Vector2(138.53732, 153.93665)
-rotation = -1.5707964
-energy = 1.5
-shadow_enabled = true
-shadow_filter = 1
-texture = ExtResource("3_i3pqv")
-texture_scale = 4.0
+[node name="RHand" type="Node2D" parent="Sprite" unique_id=414336353]
+position = Vector2(144.74628, 156.78732)
+scale = Vector2(1.5522387, 1.4253393)
+
+[node name="LHand" type="Node2D" parent="Sprite" unique_id=1218311725]
+position = Vector2(144.74628, -143.95927)
+scale = Vector2(1.5522387, 1.4253393)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=791175761]
 zoom = Vector2(0.4, 0.4)
+
+[node name="SubLabel" type="Label" parent="." unique_id=2076817085]
+material = SubResource("ShaderMaterial_ryrav")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 299.0
+offset_right = 20.0
+offset_bottom = 387.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+vertical_alignment = 1
