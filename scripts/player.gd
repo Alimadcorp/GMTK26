@@ -42,7 +42,7 @@ func _process(delta: float) -> void:
 	if has_node("CanvasLayer/bomb/Panel/TextureRect/Label"):
 		$CanvasLayer/bomb/Panel/TextureRect/Label.text = text
 		
-	if $CanvasLayer/bomb.visible:
+	if $CanvasLayer/bomb.visible and pliers:
 		Input.set_custom_mouse_cursor(preload("res://assets/bomb/plieropen.png"))
 		if Input.is_action_pressed("lmb"):
 			Input.set_custom_mouse_cursor(preload("res://assets/bomb/plierclose.png"))
