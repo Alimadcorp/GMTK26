@@ -25,8 +25,16 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _process(delta: float) -> void:
-	var text = str(floor(time/60)) + str(time % 60) 
+	var minutes: int = int(time) / 60
+	var seconds: int = int(time) % 60
+	var text = "%02d:%02d" % [minutes, seconds]
 	$CanvasLayer/bomb/Panel/TextureRect/Label.text = text
+	if $CanvasLayer/bomb.visible == true:
+		Input.set_custom_mouse_cursor(preload("res://assets/bomb/plieropen.png"))
+		if Input.is_action_pressed("lmb"):
+			Input.set_custom_mouse_cursor(preload("res://assets/bomb/plierclose.png"))
+	else:
+		Input.set_custom_mouse_cursor(null)
 
 func move() -> void:
 	var x := Input.get_axis("left", "right")
