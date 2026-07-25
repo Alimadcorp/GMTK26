@@ -3,18 +3,20 @@ extends CharacterBody2D
 @export var spd: float = 300.0
 @export var bat: float = 100.0
 
-@onready var d = $Sprite
-@onready var comp = $Compass
-@onready var l_hand = $Sprite/LHand
-@onready var r_hand = $Sprite/RHand
-@onready var sub_label = $SubLabel
+@onready var d: Sprite2D = $Sprite
+@onready var comp: Node2D = $Compass
+@onready var l_hand: Node2D = $Sprite/LHand
+@onready var r_hand: Node2D = $Sprite/RHand
+@onready var sub_label: Label = $SubLabel
 
-# left, right
-var inv: Array = [null, null] 
-var on: bool = false
+var l_item: String = ""
+var torch_held: bool = false
+var torch_on: bool = false
 var tgt: Node2D = null
 var tut_tgt: Node2D = null
 var txt_timer: SceneTreeTimer = null
+var l_hand_node: Node2D = null
+var r_hand_node: Node2D = null
 
 func _ready() -> void:
 	tut("intro")
@@ -40,12 +42,22 @@ func look() -> void:
 
 func keys() -> void:
 	if Input.is_action_just_pressed("toggle_torch"):
-		if inv[0] != null and inv[0]["id"] == "torch":
-			on = !on
+		if torch_held:
+			torch_on = !torch_on
 			update_torch_light_state()
 
+	if Input.is_action_just_pressed("interact"):
+		_interact_target()
+
 	if Input.is_action_just_pressed("drop_item"):
-		drop()
+		drop_left()
+
+func _interact_target() -> void:
+	if is_instance_valid(tgt):
+		if tgt.has_method("use"):
+			tgt.use()
+		elif tgt.is_in_group("item"):
+			pick(tgt)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -62,123 +74,107 @@ func pick(i: Node2D) -> void:
 	if i.is_in_group("fuse_box") or i.get("id") == "fuse" or i.get("id") == "fuse_box":
 		return
 
-	var current_tgt = i
+	var item_id: String = i.get("id") if "id" in i else ""
+
+	if item_id == "torch":
+		if r_hand_node:
+			drop_right()
+		i.reparent(r_hand)
+		i.position = Vector2.ZERO
+		i.rotation = 0
+		i.remove_from_group("item")
+		r_hand_node = i
+		torch_held = true
+		torch_on = true
+		update_torch_light_state()
+		tut("fuse")
+	else:
+		if l_hand_node:
+			drop_left()
+		i.reparent(l_hand)
+		i.position = Vector2.ZERO
+		i.rotation = 0
+		i.remove_from_group("item")
+		l_hand_node = i
+		l_item = item_id
+
 	tgt = null
 
-	var item_data = {
-		"id": current_tgt.id,
-		"scale": current_tgt.scale,
-		"rotation": current_tgt.rotation
-	}
-
-	var slot_idx: int = 0
-	if current_tgt.id == "torch":
-		slot_idx = 0
-		if inv[0] != null:
-			drop_slot(0)
-	else:
-		if inv[0] == null:
-			slot_idx = 0
-		elif inv[1] == null:
-			slot_idx = 1
-		else:
-			drop_slot(0)
-			slot_idx = 0
-
-	inv[slot_idx] = item_data
-	attach_hand_visual(slot_idx, current_tgt)
-
-	if current_tgt.id == "torch":
-		tut("fuse")
-
-	current_tgt.queue_free()
-
-func attach_hand_visual(slot_idx: int, original_node: Node2D) -> void:
-	var hand_node = l_hand if slot_idx == 0 else r_hand
-	
-	for child in hand_node.get_children():
-		child.queue_free()
-		
-	var visual = original_node.duplicate()
-	visual.position = Vector2.ZERO
-	visual.rotation = 0
-	visual.remove_from_group("item")
-	
-	hand_node.add_child(visual)
-
-	if slot_idx == 0 and original_node.id == "torch":
-		on = true
-		update_torch_light_state()
-
 func update_torch_light_state() -> void:
-	var light_node = l_hand.find_child("*Light*", true, false)
-	if not light_node:
-		light_node = l_hand.find_child("*Torch*", true, false)
+	if not r_hand_node:
+		return
+	
+	var light_node: PointLight2D = null
+	
+	for child in r_hand_node.get_children():
+		if child is PointLight2D:
+			light_node = child
+			break
+	
+	if not light_node and r_hand_node is PointLight2D:
+		light_node = r_hand_node
 
-	if not light_node:
-		for child in l_hand.get_children():
-			if child is PointLight2D:
-				light_node = child
-				break
-			elif child.has_node("PointLight2D"):
-				light_node = child.get_node("PointLight2D")
-				break
+	if light_node:
+		light_node.visible = torch_on
+		light_node.enabled = torch_on
+		light_node.energy = (bat / 100.0) if torch_on else 0.0
 
-	if light_node and light_node is PointLight2D:
-		light_node.visible = on
-		light_node.enabled = on
-		light_node.energy = (bat / 100.0) if on else 0.0
+func drop_left() -> void:
+	if not l_hand_node:
+		return
+	
+	var dropped: Node2D = l_hand_node
+	dropped.reparent(get_parent())
+	dropped.global_position = global_position + Vector2(30, 0).rotated(d.rotation)
+	dropped.add_to_group("item")
+	l_hand_node = null
+	l_item = ""
+
+func drop_right() -> void:
+	if not r_hand_node:
+		return
+	
+	var dropped: Node2D = r_hand_node
+	dropped.reparent(get_parent())
+	dropped.global_position = global_position + Vector2(-30, 0).rotated(d.rotation)
+	dropped.add_to_group("item")
+	r_hand_node = null
+	torch_held = false
+	torch_on = false
 
 func drop() -> void:
-	if inv[1] != null:
-		drop_slot(1)
-	elif inv[0] != null:
-		drop_slot(0)
-
-func drop_slot(idx: int) -> void:
-	if inv[idx] != null:
-		spwn(inv[idx])
-		inv[idx] = null
-		
-		var hand_node = l_hand if idx == 0 else r_hand
-		for child in hand_node.get_children():
-			child.queue_free()
-			
-		if idx == 0:
-			on = false
-
-func spwn(item_data: Dictionary) -> void:
-	var s = load("res://item.tscn")
-	var i = s.instantiate()
-	i.id = item_data["id"]
-	i.scale = item_data["scale"]
-	i.global_position = global_position + Vector2(30, 0).rotated(rotation)
-	get_parent().add_child(i)
+	if l_item != "":
+		drop_left()
+	elif torch_held:
+		drop_right()
 
 func has_item(item_id: String) -> bool:
-	for slot in inv:
-		if slot != null and slot["id"] == item_id:
-			return true
-	return false
+	if item_id == "torch":
+		return torch_held
+	return l_item == item_id
 
 func consume_item(item_id: String) -> void:
-	for i in range(inv.size()):
-		if inv[i] != null and inv[i]["id"] == item_id:
-			inv[i] = null
-			var hand_node = l_hand if i == 0 else r_hand
-			for child in hand_node.get_children():
-				child.queue_free()
-			if i == 0 and item_id == "torch":
-				on = false
-			break
+	if item_id == "torch":
+		if r_hand_node:
+			r_hand_node.queue_free()
+			r_hand_node = null
+			torch_held = false
+			torch_on = false
+		return
+	
+	if l_item == item_id:
+		if l_hand_node:
+			l_hand_node.queue_free()
+			l_hand_node = null
+		l_item = ""
 
 func upd_bat(delta: float) -> void:
-	if on and inv[0] != null and inv[0]["id"] == "torch":
+	if torch_on and torch_held:
 		if bat > 0.0:
 			bat -= delta * 1.5
 			update_torch_light_state()
 			if bat <= 0.0:
-				on = false
+				torch_on = false
 				update_torch_light_state()
 
 func txt(msg: String, duration: float = 3.0) -> void:

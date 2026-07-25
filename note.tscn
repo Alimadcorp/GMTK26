@@ -1,0 +1,19 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/note.gd" id="1_note"]
+[ext_resource type="Texture2D" path="res://assets/bomb.png" id="2_note"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_note"]
+radius = 64.0
+
+[node name="Note" type="Area2D"]
+script = ExtResource("1_note")
+text = "If you're reading this... the bombs are ticking. Always cut the RED wire first."
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 0)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_note")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_note")
