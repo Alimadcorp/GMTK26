@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://bjr12x1y48d5h" path="res://assets/player.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://bdqlr00r0hp8y" path="res://scripts/player.gd" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://rj0qq1had4nd" path="res://cone.jpg" id="3_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://b0uvsk7bd4x2e" path="res://assets/pointer_toon_a.png" id="4_hqtel"]
 [ext_resource type="Texture2D" uid="uid://dgkk220rcjt86" path="res://assets/bomb/pngkey.com-csgo-bomb-png-8268571.png" id="5_2hs0m"]
 [ext_resource type="FontFile" uid="uid://cssl7kt7xmxoh" path="res://assets/bomb/GeistPixel-Regular-VariableFont_ELSH.ttf" id="6_1jxqw"]
@@ -52,17 +51,27 @@ position = Vector2(6.749995, 0)
 scale = Vector2(0.6442308, 0.7015873)
 texture = ExtResource("1_4flbx")
 
-[node name="Torch" type="PointLight2D" parent="Sprite" unique_id=731991131]
-position = Vector2(138.53732, 153.93665)
-rotation = -1.5707964
-energy = 1.5
-shadow_enabled = true
-shadow_filter = 1
-texture = ExtResource("3_i3pqv")
-texture_scale = 4.0
+[node name="LHand" type="Node2D" parent="Sprite" unique_id=1954358468]
+position = Vector2(150.95523, -149.66063)
+
+[node name="RHand" type="Node2D" parent="Sprite" unique_id=1004637337]
+position = Vector2(150.95523, 156.78732)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=791175761]
 zoom = Vector2(0.4, 0.4)
+
+[node name="Label" type="Label" parent="Camera2D" unique_id=300141399]
+anchors_preset = -1
+anchor_right = 0.132
+anchor_bottom = 0.026
+offset_left = -140.0
+offset_top = 504.0
+offset_right = 119.712036
+offset_bottom = 740.912
+theme_override_fonts/font = ExtResource("6_1jxqw")
+theme_override_font_sizes/font_size = 48
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1560974741]
 

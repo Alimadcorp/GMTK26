@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var comp = $Compass
 @onready var l_hand = $Sprite/LHand
 @onready var r_hand = $Sprite/RHand
-@onready var sub_label = $SubLabel
+@onready var sub_label = $Camera2D/Label
 
 # left, right
 var inv: Array = [null, null] 
