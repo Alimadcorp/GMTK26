@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://c6fqp37psjxdn" path="res://scripts/item.gd" id="1_tnite"]
 [ext_resource type="Texture2D" uid="uid://bm3yp64rrxxdi" path="res://assets/light.png" id="2_ttk8k"]
+[ext_resource type="Texture2D" uid="uid://rj0qq1had4nd" path="res://cone.jpg" id="3_kg5e7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_44c3d"]
-radius = 15.0
+radius = 13.038404
 
 [node name="Item" type="Area2D" unique_id=880123044]
 script = ExtResource("1_tnite")
@@ -15,4 +16,14 @@ scale = Vector2(0.035204086, 0.03520408)
 texture = ExtResource("2_ttk8k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=556144503 groups=["item"]]
+position = Vector2(-2, 0)
 shape = SubResource("CircleShape2D_44c3d")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=610115289]
+position = Vector2(12, 0)
+rotation = -1.5707964
+energy = 2.0
+shadow_enabled = true
+shadow_filter = 1
+texture = ExtResource("3_kg5e7")
+texture_scale = 2.0

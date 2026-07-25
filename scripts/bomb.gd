@@ -12,7 +12,8 @@ func _ready() -> void:
 func use() -> void:
 	if near and not done:
 		var p = get_tree().get_first_node_in_group("player")
-		if req in p.inv:
+		if p and p.has_item(req):
+			p.consume_item(req)
 			done = true
 			get_tree().current_scene.defuse()
 
