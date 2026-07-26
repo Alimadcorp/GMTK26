@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dgkk220rcjt86" path="res://assets/bomb/pngkey.com-csgo-bomb-png-8268571.png" id="5_2hs0m"]
 [ext_resource type="FontFile" uid="uid://cssl7kt7xmxoh" path="res://assets/bomb/GeistPixel-Regular-VariableFont_ELSH.ttf" id="6_1jxqw"]
 [ext_resource type="VideoStream" uid="uid://ccr5di46jdy58" path="res://assets/exp.ogv" id="7_1jxqw"]
+[ext_resource type="Script" uid="uid://bp8dohypusyif" path="res://scripts/numpad.gd" id="7_b26j0"]
 [ext_resource type="Texture2D" uid="uid://b0oxr2rntdvb3" path="res://assets/bomb/note.png" id="8_dw050"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_44c3d"]
@@ -87,7 +88,6 @@ vertical_alignment = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1560974741]
 
 [node name="bomb" type="Control" parent="CanvasLayer" unique_id=369232735]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -156,6 +156,87 @@ offset_right = 1510.0979
 offset_bottom = 775.855
 rotation = -0.3488025
 
+[node name="Numpad" type="GridContainer" parent="CanvasLayer/bomb/Panel/TextureRect" unique_id=1006432483]
+layout_mode = 0
+offset_left = 648.0
+offset_top = 390.0
+offset_right = 1094.0
+offset_bottom = 556.0
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 5
+script = ExtResource("7_b26j0")
+
+[node name="Button1" type="Button" parent="CanvasLayer/bomb/Panel/TextureRect/Numpad" unique_id=1418029609]
+custom_minimum_size = Vector2(76, 76)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_1jxqw")
+theme_override_font_sizes/font_size = 46
+text = "1"
+
+[node name="Button2" type="Button" parent="CanvasLayer/bomb/Panel/TextureRect/Numpad" unique_id=2088228081]
+custom_minimum_size = Vector2(76, 76)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_1jxqw")
+theme_override_font_sizes/font_size = 46
+text = "2"
+
+[node name="Button3" type="Button" parent="CanvasLayer/bomb/Panel/TextureRect/Numpad" unique_id=615684403]
+custom_minimum_size = Vector2(76, 76)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_1jxqw")
+theme_override_font_sizes/font_size = 46
+text = "3"
+
+[node name="Button4" type="Button" parent="CanvasLayer/bomb/Panel/TextureRect/Numpad" unique_id=1936614170]
+custom_minimum_size = Vector2(76, 76)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_1jxqw")
+theme_override_font_sizes/font_size = 46
+text = "4"
+
+[node name="Button5" type="Button" parent="CanvasLayer/bomb/Panel/TextureRect/Numpad" unique_id=1947478554]
+custom_minimum_size = Vector2(76, 76)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_1jxqw")
+theme_override_font_sizes/font_size = 46
+text = "5"
+
+[node name="Button6" type="Button" parent="CanvasLayer/bomb/Panel/TextureRect/Numpad" unique_id=1049538627]
+custom_minimum_size = Vector2(76, 76)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_1jxqw")
+theme_override_font_sizes/font_size = 46
+text = "6"
+
+[node name="Button7" type="Button" parent="CanvasLayer/bomb/Panel/TextureRect/Numpad" unique_id=1185369473]
+custom_minimum_size = Vector2(76, 76)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_1jxqw")
+theme_override_font_sizes/font_size = 46
+text = "7"
+
+[node name="Button8" type="Button" parent="CanvasLayer/bomb/Panel/TextureRect/Numpad" unique_id=2014860464]
+custom_minimum_size = Vector2(76, 76)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_1jxqw")
+theme_override_font_sizes/font_size = 46
+text = "8"
+
+[node name="Button9" type="Button" parent="CanvasLayer/bomb/Panel/TextureRect/Numpad" unique_id=1610253082]
+custom_minimum_size = Vector2(76, 76)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_1jxqw")
+theme_override_font_sizes/font_size = 46
+text = "9"
+
+[node name="Button0" type="Button" parent="CanvasLayer/bomb/Panel/TextureRect/Numpad" unique_id=371210638]
+custom_minimum_size = Vector2(76, 76)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_1jxqw")
+theme_override_font_sizes/font_size = 46
+text = "0"
+
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="CanvasLayer" unique_id=786057044]
 visible = false
 anchors_preset = 15
@@ -197,7 +278,7 @@ offset_right = 754.0
 offset_bottom = 388.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
-text = "igihoaiiiaigihoaiiiaigihoaiiiaigihoaiiiaigihoaiiiaigihoaiiiaigihoaiiiaigihoaiiiaigihoaiiiaigihoaiiia"
+text = "Note"
 autowrap_mode = 3
 
 [node name="TextureButton" type="TextureRect" parent="CanvasLayer/Control" unique_id=1847312609]
@@ -210,3 +291,13 @@ offset_bottom = 473.0
 [connection signal="pressed" from="CanvasLayer/bomb/Panel/TextureRect/red" to="." method="_on_red_pressed"]
 [connection signal="pressed" from="CanvasLayer/bomb/Panel/TextureRect/yellow" to="." method="_on_yellow_pressed"]
 [connection signal="pressed" from="CanvasLayer/bomb/Panel/TextureRect/black" to="." method="_on_black_pressed"]
+[connection signal="pressed" from="CanvasLayer/bomb/Panel/TextureRect/Numpad/Button1" to="CanvasLayer/bomb/Panel/TextureRect/Numpad" method="_on_button_pressed" flags=18]
+[connection signal="pressed" from="CanvasLayer/bomb/Panel/TextureRect/Numpad/Button2" to="CanvasLayer/bomb/Panel/TextureRect/Numpad" method="_on_button_pressed" flags=18]
+[connection signal="pressed" from="CanvasLayer/bomb/Panel/TextureRect/Numpad/Button3" to="CanvasLayer/bomb/Panel/TextureRect/Numpad" method="_on_button_pressed" flags=18]
+[connection signal="pressed" from="CanvasLayer/bomb/Panel/TextureRect/Numpad/Button4" to="CanvasLayer/bomb/Panel/TextureRect/Numpad" method="_on_button_pressed" flags=18]
+[connection signal="pressed" from="CanvasLayer/bomb/Panel/TextureRect/Numpad/Button5" to="CanvasLayer/bomb/Panel/TextureRect/Numpad" method="_on_button_pressed" flags=18]
+[connection signal="pressed" from="CanvasLayer/bomb/Panel/TextureRect/Numpad/Button6" to="CanvasLayer/bomb/Panel/TextureRect/Numpad" method="_on_button_pressed" flags=18]
+[connection signal="pressed" from="CanvasLayer/bomb/Panel/TextureRect/Numpad/Button7" to="CanvasLayer/bomb/Panel/TextureRect/Numpad" method="_on_button_pressed" flags=18]
+[connection signal="pressed" from="CanvasLayer/bomb/Panel/TextureRect/Numpad/Button8" to="CanvasLayer/bomb/Panel/TextureRect/Numpad" method="_on_button_pressed" flags=18]
+[connection signal="pressed" from="CanvasLayer/bomb/Panel/TextureRect/Numpad/Button9" to="CanvasLayer/bomb/Panel/TextureRect/Numpad" method="_on_button_pressed" flags=18]
+[connection signal="pressed" from="CanvasLayer/bomb/Panel/TextureRect/Numpad/Button0" to="CanvasLayer/bomb/Panel/TextureRect/Numpad" method="_on_button_pressed" flags=18]

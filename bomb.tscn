@@ -23,7 +23,7 @@ shape = SubResource("CircleShape2D_44c3d")
 stream = ExtResource("3_nfxiy")
 volume_db = 6.7
 max_distance = 6000.0
-attenuation = 0.35355338
+attenuation = 2.3784158
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

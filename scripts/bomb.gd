@@ -35,14 +35,14 @@ func _process(delta: float) -> void:
 			beep_player.stop()
 		beep_timer = 0.0
 
-func use() -> void:
-	if near and not done and req == 'key':
-		var p = get_tree().get_first_node_in_group("player")
-		if p and p.has_item(req):
-			p.consume_item(req)
-			done = true
-			get_tree().current_scene.defuse()
-			queue_free()
+#func use() -> void:
+	#if near and not done and req == 'key':
+		#var p = get_tree().get_first_node_in_group("player")
+		#if p and p.has_item(req):
+			#p.consume_item(req)
+			#done = true
+			#get_tree().current_scene.defuse()
+			#queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
 	if get_tree().current_scene.state != "ticking": return

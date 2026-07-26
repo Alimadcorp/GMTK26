@@ -11,7 +11,7 @@ var spd = 0.0
 @onready var sub_label = $Camera2D/Label
 
 var shouldpliers = false
-
+var pwd = ""
 var l_item: Node2D = null
 var torch_item: Node2D = null
 var pliers = false
@@ -211,6 +211,7 @@ func expl():
 func toggle_bomb(val: bool, plier: bool):
 	$CanvasLayer/bomb.visible = val
 	shouldpliers = plier
+	$CanvasLayer/bomb/Panel/TextureRect/Numpad.visible = !plier
 
 func setcorwire(wire):
 	current_correct_wire = wire
@@ -242,9 +243,20 @@ func _on_black_pressed() -> void:
 		c_bomb.queue_free()
 		toggle_bomb(false, false)
 
+func numpad(i):
+	pwd += i
+	if(pwd.length() == 4):
+		if(pwd == "6767"):
+			get_tree().current_scene.diffuse()
+			c_bomb.queue_free()
+			toggle_bomb(false, false)
+		else:
+			toggle_bomb(false, false)
+			expl()
+
 func show_note(Text, some=true):
 	if some == true:
-		$CanvasLayer/Control.visible = !$CanvasLayer/Control.visible
-	else:
 		$CanvasLayer/Control.visible = true
+	else:
+		$CanvasLayer/Control.visible = false
 	$CanvasLayer/Control/Label.text = Text
