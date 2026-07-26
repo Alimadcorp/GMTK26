@@ -5,6 +5,8 @@ extends Area2D
 var done: bool = false
 var near: bool = false
 
+@export var wire = "red"
+
 func _ready() -> void:
 	body_entered.connect(_in)
 	body_exited.connect(_out)
@@ -27,12 +29,15 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		if(body.has("key") and req == "key"):
 			get_tree().current_scene.defuse()
+		elif req == "pliers":
+			body.toggle_bomb(true, true)
+			body.setcorwire(wire)
 		else:
-			body.toggle_bomb(true)
+			body.toggle_bomb(false,false)
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		body.toggle_bomb(false)
+		body.toggle_bomb(false, false)
 
 func _in(b: Node2D) -> void:
 	if b.is_in_group("player"):

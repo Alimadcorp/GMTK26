@@ -86,7 +86,6 @@ vertical_alignment = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1560974741]
 
 [node name="bomb" type="Control" parent="CanvasLayer" unique_id=369232735]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -131,7 +130,32 @@ text = "3:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="red" type="Button" parent="CanvasLayer/bomb/Panel/TextureRect" unique_id=1023420664]
+layout_mode = 0
+offset_left = 1478.0001
+offset_top = 147.99997
+offset_right = 1570.0979
+offset_bottom = 798.02454
+rotation = -0.3488025
+
+[node name="yellow" type="Button" parent="CanvasLayer/bomb/Panel/TextureRect" unique_id=1097978979]
+layout_mode = 0
+offset_left = 1432.0
+offset_top = 310.00006
+offset_right = 1524.0978
+offset_bottom = 748.299
+rotation = -0.3488025
+
+[node name="black" type="Button" parent="CanvasLayer/bomb/Panel/TextureRect" unique_id=690637308]
+layout_mode = 0
+offset_left = 1418.0001
+offset_top = 576.0
+offset_right = 1510.0979
+offset_bottom = 775.855
+rotation = -0.3488025
+
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="CanvasLayer" unique_id=786057044]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -139,3 +163,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.399999, 1.399999)
 stream = ExtResource("7_1jxqw")
+
+[connection signal="pressed" from="CanvasLayer/bomb/Panel/TextureRect/red" to="." method="_on_red_pressed"]
+[connection signal="pressed" from="CanvasLayer/bomb/Panel/TextureRect/yellow" to="." method="_on_yellow_pressed"]
+[connection signal="pressed" from="CanvasLayer/bomb/Panel/TextureRect/black" to="." method="_on_black_pressed"]

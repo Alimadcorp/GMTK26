@@ -10,6 +10,8 @@ var spd = 0.0
 @onready var r_hand = $Sprite/RHand
 @onready var sub_label = $Camera2D/Label
 
+var shouldpliers = false
+
 var l_item: Node2D = null
 var torch_item: Node2D = null
 var pliers = false
@@ -17,6 +19,8 @@ var on: bool = false
 var tgt: Node2D = null
 var tut_tgt: Node2D = null
 var txt_timer: SceneTreeTimer = null
+
+var current_correct_wire
 
 func _ready() -> void:
 	add_to_group("player")
@@ -42,7 +46,7 @@ func _process(delta: float) -> void:
 	if has_node("CanvasLayer/bomb/Panel/TextureRect/Label"):
 		$CanvasLayer/bomb/Panel/TextureRect/Label.text = text
 		
-	if $CanvasLayer/bomb.visible and pliers:
+	if $CanvasLayer/bomb.visible and pliers and shouldpliers:
 		Input.set_custom_mouse_cursor(preload("res://assets/bomb/plieropen.png"))
 		if Input.is_action_pressed("lmb"):
 			Input.set_custom_mouse_cursor(preload("res://assets/bomb/plierclose.png"))
@@ -198,5 +202,21 @@ func upd_comp() -> void:
 func expl():
 	$CanvasLayer/VideoStreamPlayer.play()
 
-func toggle_bomb(val):
+func toggle_bomb(val, plier):
 	$CanvasLayer/bomb.visible = val
+	shouldpliers = plier
+
+func setcorwire(wire):
+	current_correct_wire = wire
+
+func _on_red_pressed() -> void:
+	if current_correct_wire != "red":
+		expl()
+
+func _on_yellow_pressed() -> void:
+	if current_correct_wire != "yellow":
+		expl()
+
+func _on_black_pressed() -> void:
+	if current_correct_wire != "black":
+		expl()
