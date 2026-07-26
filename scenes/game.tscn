@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://duvhimkep2oyo" path="res://scenes/note.tscn" id="16_80cx4"]
 [ext_resource type="Texture2D" uid="uid://cf7t7a305mofa" path="res://assets/arrow.png" id="17_ssvqc"]
 [ext_resource type="FontFile" uid="uid://2sbnayq5va72" path="res://assets/menu/FontdinerSwanky-Regular.ttf" id="18_264po"]
+[ext_resource type="Script" uid="uid://w66fdbd26o86" path="res://scenes/bed.gd" id="19_264po"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_eow3j"]
 polygon = PackedVector2Array(-64, 64, -28.34497, 64, -26.57341, -29.230751, 64, -29.230751, 64, -64, -64, -64)
@@ -637,6 +638,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7sc4i"]
 size = Vector2(185.74628, 35.18918)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1x3kl"]
+size = Vector2(448, 560)
+
 [node name="Game" type="Node2D" unique_id=1265723192]
 script = ExtResource("1_e2o6t")
 
@@ -859,5 +863,12 @@ offset_bottom = 113.440674
 theme_override_fonts/font = ExtResource("18_264po")
 theme_override_font_sizes/font_size = 32
 text = "key might be there"
+
+[node name="bed" type="Area2D" parent="." unique_id=1735678418]
+script = ExtResource("19_264po")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bed" unique_id=234037684]
+position = Vector2(0, 61)
+shape = SubResource("RectangleShape2D_1x3kl")
 
 [connection signal="body_entered" from="Door/Area2D" to="Door" method="_on_area_2d_body_entered"]

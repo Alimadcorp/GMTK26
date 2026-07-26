@@ -206,9 +206,16 @@ func _clear_txt() -> void:
 	if sub_label:
 		sub_label.visible = false
 
+var fusefixed = false
+
 func sleeper():
-	if get_parent().state == "won":
+	if get_parent().state == "won" and !fusefixed:
 		tut_tgt = get_parent().get_node('FuseBox')
+		get_parent().get_node('FuseBox').done = true
+		fusefixed = true
+		upd_comp()
+	if get_parent().state == "won" and fusefixed:
+		tut_tgt = get_parent().get_node('bed')
 		upd_comp()
 
 func tut(id: String) -> void:
