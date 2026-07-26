@@ -9,6 +9,8 @@ var spd = 0.0
 @onready var l_hand = $Sprite/LHand
 @onready var r_hand = $Sprite/RHand
 @onready var sub_label = $Camera2D/Label
+@onready var walking_sfx: AudioStreamPlayer = $walkingSFX
+@onready var heartbeat_sfx: AudioStreamPlayer = $heartbeatSFX
 
 var shouldpliers = false
 
@@ -37,9 +39,15 @@ func _physics_process(delta: float) -> void:
 		upd_bat(delta)
 		upd_comp()
 		move_and_slide()
+	else:
+		walking_sfx.stop()
 
 func _process(delta: float) -> void:
-	var time = get_parent().time
+	var manager = get_parent()
+	var time: float = manager.time
+	
+	update_heartbeat(manager, time)
+	
 	var minutes: int = int(time) / 60
 	var seconds: int = int(time) % 60
 	var text = "%02d:%02d" % [minutes, seconds]
@@ -54,11 +62,27 @@ func _process(delta: float) -> void:
 	else:
 		Input.set_custom_mouse_cursor(null)
 
+func update_heartbeat(manager: Node, time: float) -> void: #Plays when timer is at 10 seconds, gets higher near 0
+	if manager.state == "ticking" and time <= 10.0 and time > 0.0:
+		var progress : float = 1.0 - clamp(time / 10.0, 0.0, 1.0)
+		heartbeat_sfx.volume_db = lerp(0.0, 15.0, progress)
+		if not heartbeat_sfx.playing:
+			heartbeat_sfx.play()
+	else:
+		heartbeat_sfx.stop()
+
+
 func move() -> void:
 	var x := Input.get_axis("left", "right")
 	var y := Input.get_axis("up", "down")
 	var dir := Vector2(x, y).normalized()
 	velocity = dir * spd * (1.3 if x != 0.0 and y != 0.0 else 1.0)
+
+	if dir != Vector2.ZERO:
+		if not walking_sfx.playing:
+			walking_sfx.play()
+	else:
+		walking_sfx.stop()
 
 func look() -> void:
 	d.look_at(get_global_mouse_position())
@@ -191,7 +215,7 @@ func tut(id: String) -> void:
 		txt("i should check the fuse box", 4.0)
 		tut_tgt = get_tree().get_first_node_in_group("fuse_box")
 	elif id == "oh_shit":
-		txt("someone messed with the fuse box, I should look around", 4.0)
+		txt("ts has been sabotaged :noooovanish:", 4.0)
 
 func no_tut() -> void:
 	tut_tgt = null

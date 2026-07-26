@@ -10,7 +10,6 @@
 [ext_resource type="AudioStream" uid="uid://b6n4phrm2dccq" path="res://assets/lights-out.mp3" id="6_hve3p"]
 [ext_resource type="Texture2D" uid="uid://cg1p8lfhfgerm" path="res://assets/Tilelist Objects.png" id="6_j5wjh"]
 [ext_resource type="PackedScene" uid="uid://duc2knnnsev51" path="res://bomb.tscn" id="7_eow3j"]
-[ext_resource type="TileSet" uid="uid://cqvrhyq8twngt" path="res://assets/tsb.tres" id="7_lc2xo"]
 [ext_resource type="TileSet" uid="uid://5i6em4xeb8js" path="res://assets/tilest.tres" id="8_215e1"]
 [ext_resource type="Texture2D" uid="uid://d06jqh6vk3d7n" path="res://assets/w.png" id="10_215e1"]
 [ext_resource type="PackedScene" uid="uid://dmsgwhosupamw" path="res://pliers.tscn" id="11_mfdv2"]
