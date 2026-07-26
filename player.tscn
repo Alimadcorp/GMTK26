@@ -86,6 +86,7 @@ vertical_alignment = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1560974741]
 
 [node name="bomb" type="Control" parent="CanvasLayer" unique_id=369232735]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

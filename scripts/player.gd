@@ -19,6 +19,7 @@ var on: bool = false
 var tgt: Node2D = null
 var tut_tgt: Node2D = null
 var txt_timer: SceneTreeTimer = null
+var c_bomb: Area2D = null
 
 var current_correct_wire
 
@@ -157,11 +158,14 @@ func consume_item(item_id: String) -> void:
 func upd_bat(delta: float) -> void:
 	if on and is_instance_valid(torch_item):
 		if bat > 0.0:
-			bat -= delta * 1.5
+			bat -= delta * 1.0
 			update_torch_light_state()
 			if bat <= 0.0:
 				on = false
 				update_torch_light_state()
+	elif not on and bat < 200.0:
+			bat += delta * 3.0
+			update_torch_light_state()
 
 func txt(msg: String, duration: float = 3.0) -> void:
 	if sub_label:
@@ -200,9 +204,10 @@ func upd_comp() -> void:
 		comp.visible = false
 
 func expl():
+	toggle_bomb(false, false)
 	$CanvasLayer/VideoStreamPlayer.play()
 
-func toggle_bomb(val, plier):
+func toggle_bomb(val: bool, plier: bool):
 	$CanvasLayer/bomb.visible = val
 	shouldpliers = plier
 
@@ -212,11 +217,23 @@ func setcorwire(wire):
 func _on_red_pressed() -> void:
 	if current_correct_wire != "red":
 		expl()
+	else:
+		get_tree().current_scene.defuse()
+		c_bomb.queue_free()
+		toggle_bomb(false, false)
 
 func _on_yellow_pressed() -> void:
 	if current_correct_wire != "yellow":
 		expl()
+	else:
+		get_tree().current_scene.defuse()
+		c_bomb.queue_free()
+		toggle_bomb(false, false)
 
 func _on_black_pressed() -> void:
 	if current_correct_wire != "black":
 		expl()
+	else:
+		get_tree().current_scene.defuse()
+		c_bomb.queue_free()
+		toggle_bomb(false, false)

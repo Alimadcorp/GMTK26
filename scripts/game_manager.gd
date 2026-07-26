@@ -7,8 +7,8 @@ extends Node2D
 @export var start_beep_duration: float = 0.6
 @export var end_beep_duration: float = 0.1
 
-@export var start_beep_delay: float = 1.0
-@export var end_beep_delay: float = 0.2
+@export var start_beep_delay: float = 3.0
+@export var end_beep_delay: float = 0.5
 
 @export var stages_count: int = 5
 
