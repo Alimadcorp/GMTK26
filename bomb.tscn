@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bgvw8fy78whxy" path="res://scripts/bomb.gd" id="1_4fn8o"]
 [ext_resource type="Texture2D" uid="uid://dgkk220rcjt86" path="res://assets/bomb/pngkey.com-csgo-bomb-png-8268571.png" id="2_4fn8o"]
+[ext_resource type="AudioStream" uid="uid://dtd4wim6dox7l" path="res://assets/mr_berrydev-single-keypad-beep-433456.mp3" id="3_nfxiy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_44c3d"]
 radius = 897.0557
@@ -9,6 +10,7 @@ radius = 897.0557
 [node name="Item" type="Area2D" unique_id=880123044]
 script = ExtResource("1_4fn8o")
 req = "pliers"
+beep_duration = 0.5
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1180490243]
 position = Vector2(-4.7683716e-07, 0)
@@ -16,6 +18,12 @@ texture = ExtResource("2_4fn8o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=556144503]
 shape = SubResource("CircleShape2D_44c3d")
+
+[node name="BeepSFX" type="AudioStreamPlayer2D" parent="." unique_id=2018615604]
+stream = ExtResource("3_nfxiy")
+volume_db = 6.7
+max_distance = 6000.0
+attenuation = 0.35355338
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
