@@ -206,6 +206,11 @@ func _clear_txt() -> void:
 	if sub_label:
 		sub_label.visible = false
 
+func sleeper():
+	if get_parent().state == "won":
+		tut_tgt = get_parent().get_node('FuseBox')
+		upd_comp()
+
 func tut(id: String) -> void:
 	if id == "intro":
 		txt("*bro sleeping...*", 2.5)
