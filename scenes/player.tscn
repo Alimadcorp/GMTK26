@@ -255,6 +255,7 @@ theme_override_font_sizes/font_size = 46
 text = "0"
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="CanvasLayer" unique_id=786057044]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -265,8 +266,6 @@ grow_vertical = 2
 scale = Vector2(1.885, 1.885)
 stream = ExtResource("7_1jxqw")
 volume_db = 2.3400002
-autoplay = true
-loop = true
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=2039501867]
 visible = false
