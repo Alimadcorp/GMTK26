@@ -240,6 +240,9 @@ func toggle_bomb(val: bool, plier: bool):
 	$CanvasLayer/bomb.visible = val
 	shouldpliers = plier
 	$CanvasLayer/bomb/Panel/TextureRect/Numpad.visible = !plier
+	$CanvasLayer/bomb/Panel/TextureRect/black.visible = plier
+	$CanvasLayer/bomb/Panel/TextureRect/red.visible = plier
+	$CanvasLayer/bomb/Panel/TextureRect/yellow.visible = plier
 
 func setcorwire(wire):
 	current_correct_wire = wire
