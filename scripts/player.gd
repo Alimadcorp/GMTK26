@@ -241,3 +241,10 @@ func _on_black_pressed() -> void:
 		get_tree().current_scene.defuse()
 		c_bomb.queue_free()
 		toggle_bomb(false, false)
+
+func show_note(Text, some=true):
+	if some == true:
+		$CanvasLayer/Control.visible = !$CanvasLayer/Control.visible
+	else:
+		$CanvasLayer/Control.visible = true
+	$CanvasLayer/Control/Label.text = Text

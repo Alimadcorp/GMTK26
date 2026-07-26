@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dgkk220rcjt86" path="res://assets/bomb/pngkey.com-csgo-bomb-png-8268571.png" id="5_2hs0m"]
 [ext_resource type="FontFile" uid="uid://cssl7kt7xmxoh" path="res://assets/bomb/GeistPixel-Regular-VariableFont_ELSH.ttf" id="6_1jxqw"]
 [ext_resource type="VideoStream" uid="uid://ccr5di46jdy58" path="res://assets/exp.ogv" id="7_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://b0oxr2rntdvb3" path="res://assets/bomb/note.png" id="8_dw050"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_44c3d"]
 radius = 126.81088
@@ -164,6 +165,46 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.399999, 1.399999)
 stream = ExtResource("7_1jxqw")
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=2039501867]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control" unique_id=1179401143]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 387.0
+offset_top = 95.0
+offset_right = 419.0
+offset_bottom = 127.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(12, 12)
+texture = ExtResource("8_dw050")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=2013926690]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 151.0
+offset_right = 754.0
+offset_bottom = 388.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "igihoaiiiaigihoaiiiaigihoaiiiaigihoaiiiaigihoaiiiaigihoaiiiaigihoaiiiaigihoaiiiaigihoaiiiaigihoaiiia"
+autowrap_mode = 3
+
+[node name="TextureButton" type="TextureRect" parent="CanvasLayer/Control" unique_id=1847312609]
+layout_mode = 0
+offset_left = 431.0
+offset_top = 388.0
+offset_right = 645.0
+offset_bottom = 473.0
 
 [connection signal="pressed" from="CanvasLayer/bomb/Panel/TextureRect/red" to="." method="_on_red_pressed"]
 [connection signal="pressed" from="CanvasLayer/bomb/Panel/TextureRect/yellow" to="." method="_on_yellow_pressed"]
