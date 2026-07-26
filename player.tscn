@@ -90,6 +90,7 @@ vertical_alignment = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1560974741]
 
 [node name="bomb" type="Control" parent="CanvasLayer" unique_id=369232735]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -159,6 +160,7 @@ offset_bottom = 775.855
 rotation = -0.3488025
 
 [node name="Numpad" type="GridContainer" parent="CanvasLayer/bomb/Panel/TextureRect" unique_id=1006432483]
+visible = false
 layout_mode = 0
 offset_left = 648.0
 offset_top = 390.0
@@ -240,7 +242,6 @@ theme_override_font_sizes/font_size = 46
 text = "0"
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="CanvasLayer" unique_id=786057044]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

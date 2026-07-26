@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://b203uk7bd1rua" path="res://assets/menu/button_rectangle_depth_flat.svg" id="6_nrnbx"]
 [ext_resource type="FontFile" uid="uid://2sbnayq5va72" path="res://assets/menu/FontdinerSwanky-Regular.ttf" id="7_ecwwl"]
 [ext_resource type="FontFile" uid="uid://cssl7kt7xmxoh" path="res://assets/bomb/GeistPixel-Regular-VariableFont_ELSH.ttf" id="9_nrnbx"]
-[ext_resource type="Script" uid="uid://c0il3nwhr6yif" path="res://titl.gd" id="11_h1wq0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_epuwg"]
 font = ExtResource("7_ecwwl")
@@ -134,18 +133,20 @@ T for torch
 E to interact"
 
 [node name="title" type="Node2D" parent="." unique_id=2124680337]
-position = Vector2(216.5, 62)
-script = ExtResource("11_h1wq0")
+position = Vector2(669, 136)
 
 [node name="Label" type="Label" parent="title" unique_id=1576858959]
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = 100.5
-offset_top = 32.0
-offset_right = 834.5
-offset_bottom = 160.0
+anchor_bottom = 0.5
+offset_left = -367.0
+offset_top = -64.0
+offset_right = 367.0
+offset_bottom = 64.0
 grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.75, 0.75)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_ecwwl")
@@ -156,6 +157,7 @@ vertical_alignment = 1
 text_overrun_behavior = 5
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="title" unique_id=1502311356]
+visible = false
 position = Vector2(-5.5, 0)
 occluder = SubResource("OccluderPolygon2D_dwrpx")
 
