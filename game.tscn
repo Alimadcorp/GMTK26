@@ -551,6 +551,7 @@ attenuation = 1e-05
 
 [node name="Lullaby" type="AudioStreamPlayer2D" parent="." unique_id=331376416]
 stream = ExtResource("5_vef74")
+volume_db = 1.0
 autoplay = true
 max_distance = 4096.0
 attenuation = 1e-05

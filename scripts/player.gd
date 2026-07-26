@@ -215,6 +215,7 @@ func setcorwire(wire):
 	current_correct_wire = wire
 
 func _on_red_pressed() -> void:
+	if not pliers: return
 	if current_correct_wire != "red":
 		expl()
 	else:
@@ -223,6 +224,7 @@ func _on_red_pressed() -> void:
 		toggle_bomb(false, false)
 
 func _on_yellow_pressed() -> void:
+	if not pliers: return
 	if current_correct_wire != "yellow":
 		expl()
 	else:
@@ -231,6 +233,7 @@ func _on_yellow_pressed() -> void:
 		toggle_bomb(false, false)
 
 func _on_black_pressed() -> void:
+	if not pliers: return
 	if current_correct_wire != "black":
 		expl()
 	else:

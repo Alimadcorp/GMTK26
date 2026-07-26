@@ -21,6 +21,7 @@ func use() -> void:
 			queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
+	if get_tree().current_scene.state != "ticking": return
 	if body.is_in_group("player"):
 		if req == "pliers":
 			body.c_bomb = self
@@ -34,7 +35,7 @@ func _on_body_exited(body: Node2D) -> void:
 		body.toggle_bomb(false, false)
 
 func _in(b: Node2D) -> void:
-	if b.is_in_group("player"):
+	if b.is_in_group("player") and get_tree().current_scene.state == "ticking":
 		near = true
 		b.tgt = self
 
