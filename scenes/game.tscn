@@ -783,6 +783,22 @@ theme_override_font_sizes/font_size = 32
 text = "pliers might be
 this way..."
 
+[node name="Arrow6" type="Sprite2D" parent="." unique_id=1020029555]
+position = Vector2(7686, 3843)
+rotation = 0.8441387
+scale = Vector2(2.95, 2.95)
+texture = ExtResource("17_ssvqc")
+
+[node name="Label" type="Label" parent="Arrow6" unique_id=1368348765]
+offset_left = -44.067795
+offset_top = 6.4406767
+offset_right = 372.9322
+offset_bottom = 113.440674
+theme_override_fonts/font = ExtResource("18_264po")
+theme_override_font_sizes/font_size = 32
+text = "pliers might be
+this way..."
+
 [node name="Arrow2" type="Sprite2D" parent="." unique_id=1413601004]
 position = Vector2(-6952.9995, -5649.9995)
 rotation = 2.2117789
