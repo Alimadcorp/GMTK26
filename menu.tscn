@@ -115,7 +115,6 @@ energy = 1.5
 shadow_enabled = true
 shadow_color = Color(0.63719434, 0.32010862, 0.28719968, 0.31764707)
 shadow_filter = 1
-shadow_filter_smooth = 4.5
 texture = ExtResource("1_ouk20")
 texture_scale = 0.45
 script = ExtResource("2_mae5d")

@@ -120,6 +120,7 @@ func drop_left_hand() -> void:
 		l_item.reparent(get_parent())
 		l_item.global_position = global_position + Vector2(30, 0).rotated(rotation)
 		l_item = null
+		pliers = has("pliers")
 
 func update_torch_light_state() -> void:
 	if not is_instance_valid(torch_item):
@@ -215,7 +216,7 @@ func setcorwire(wire):
 	current_correct_wire = wire
 
 func _on_red_pressed() -> void:
-	if not pliers: return
+	if not pliers or not shouldpliers: return
 	if current_correct_wire != "red":
 		expl()
 	else:
@@ -224,7 +225,7 @@ func _on_red_pressed() -> void:
 		toggle_bomb(false, false)
 
 func _on_yellow_pressed() -> void:
-	if not pliers: return
+	if not pliers or not shouldpliers: return
 	if current_correct_wire != "yellow":
 		expl()
 	else:
@@ -233,7 +234,7 @@ func _on_yellow_pressed() -> void:
 		toggle_bomb(false, false)
 
 func _on_black_pressed() -> void:
-	if not pliers: return
+	if not pliers or not shouldpliers: return
 	if current_correct_wire != "black":
 		expl()
 	else:
