@@ -144,7 +144,7 @@ func drop_left_hand() -> void:
 		l_item.reparent(get_parent())
 		l_item.global_position = global_position + Vector2(30, 0).rotated(rotation)
 		l_item = null
-		pliers = has("pliers")
+		pliers = false
 
 func update_torch_light_state() -> void:
 	if not is_instance_valid(torch_item):
@@ -274,7 +274,7 @@ func numpad(i):
 	pwd += i
 	if(pwd.length() == 4):
 		if(pwd == "6767"):
-			get_tree().current_scene.diffuse()
+			get_tree().current_scene.defuse()
 			c_bomb.queue_free()
 			toggle_bomb(false, false)
 		else:

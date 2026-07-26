@@ -34,6 +34,8 @@ shader = ExtResource("2_sweqy")
 
 [node name="Player" type="CharacterBody2D" unique_id=419964917 groups=["player"]]
 script = ExtResource("1_onrkg")
+speed = null
+bat = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=686461135]
 shape = SubResource("CircleShape2D_44c3d")

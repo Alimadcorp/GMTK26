@@ -54,8 +54,8 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if get_tree().current_scene.state != "ticking": return
 	if body.is_in_group("player"):
+		body.c_bomb = self
 		if req == "pliers":
-			body.c_bomb = self
 			body.toggle_bomb(true, true)
 			body.setcorwire(wire)
 		else:
