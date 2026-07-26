@@ -245,7 +245,7 @@ tile_size = Vector2i(128, 128)
 sources/0 = SubResource("TileSetAtlasSource_vef74")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_215e1"]
-size = Vector2(132.91138, 44.303795)
+size = Vector2(180.74475, 44.303795)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7sc4i"]
 atlas = ExtResource("10_215e1")
@@ -398,14 +398,17 @@ tile_set = SubResource("TileSet_eow3j")
 rendering_quadrant_size = 128
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2114163276]
-position = Vector2(7102, 3213)
-scale = Vector2(0.79, 0.79)
+position = Vector2(7047, 3175.9998)
+scale = Vector2(2.245, 2.245)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1943773266]
-position = Vector2(0.63290405, 44.936737)
+position = Vector2(24.549805, 44.936768)
+scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("RectangleShape2D_215e1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D" unique_id=421754872]
+position = Vector2(24.792969, 0)
+scale = Vector2(1.3873901, 1)
 sprite_frames = SubResource("SpriteFrames_44c3d")
 frame = 6
 speed_scale = 0.0
