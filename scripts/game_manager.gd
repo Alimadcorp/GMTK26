@@ -1,8 +1,6 @@
 extends Node2D
 
-@export var max_time: float = 10.0 #The  bomb time I think (default to 300) / 10 min
-
-@export var stages_count: int = 6
+@export var max_time: float = 60.0
 
 var bombs: int = 4
 var done: int = 0

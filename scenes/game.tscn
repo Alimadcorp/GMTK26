@@ -715,19 +715,22 @@ scale = Vector2(6.2172422, 6.2172422)
 [node name="BOMB" parent="." unique_id=1638691013 groups=["item"] instance=ExtResource("7_eow3j")]
 position = Vector2(-1322, 3445)
 scale = Vector2(0.2, 0.2)
+req = "cutter"
 
 [node name="BOMB2" parent="." unique_id=687908609 groups=["item"] instance=ExtResource("7_eow3j")]
 position = Vector2(-11444, 5822)
 scale = Vector2(0.2, 0.2)
+req = "cutter"
 
 [node name="BOMB3" parent="." unique_id=36222250 groups=["item"] instance=ExtResource("7_eow3j")]
 position = Vector2(-6954.0005, -4669)
 scale = Vector2(0.2, 0.2)
+req = "cutter"
 
 [node name="BOMB4" parent="." unique_id=824560260 groups=["item"] instance=ExtResource("7_eow3j")]
 position = Vector2(8893, -2860)
 scale = Vector2(0.2, 0.2)
-req = "key"
+req = "cutter"
 
 [node name="Pliers" parent="." unique_id=611076829 instance=ExtResource("11_mfdv2")]
 position = Vector2(11115, 6130.9995)
