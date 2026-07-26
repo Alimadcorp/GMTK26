@@ -36,12 +36,7 @@ func _process(delta: float) -> void:
 		beep_timer = 0.0
 
 func use() -> void:
-	# TODO: ok guys this is not the right way, 
-	# when the player left clocks on a bomb which has req == 'pliers'
-	# it is actually a left click on the bomb UI
-	# we have to determine which wire was clicked, and if that specific wire correct
-	# then we make the bomb diffused (call game_manager.diffuse())
-	if near and not done:
+	if near and not done and req == 'key':
 		var p = get_tree().get_first_node_in_group("player")
 		if p and p.has_item(req):
 			p.consume_item(req)
@@ -50,21 +45,21 @@ func use() -> void:
 			queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
+	if get_tree().current_scene.state != "ticking": return
 	if body.is_in_group("player"):
-		if(body.has("key") and req == "key"):
-			get_tree().current_scene.defuse()
-		elif req == "pliers":
+		if req == "pliers":
+			body.c_bomb = self
 			body.toggle_bomb(true, true)
 			body.setcorwire(wire)
 		else:
-			body.toggle_bomb(false,false)
+			body.toggle_bomb(true, false)
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		body.toggle_bomb(false, false)
 
 func _in(b: Node2D) -> void:
-	if b.is_in_group("player"):
+	if b.is_in_group("player") and get_tree().current_scene.state == "ticking":
 		near = true
 		b.tgt = self
 
