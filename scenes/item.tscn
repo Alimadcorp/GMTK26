@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c6fqp37psjxdn" path="res://scripts/item.gd" id="1_tnite"]
 [ext_resource type="Texture2D" uid="uid://bm3yp64rrxxdi" path="res://assets/light.png" id="2_ttk8k"]
-[ext_resource type="Texture2D" uid="uid://rj0qq1had4nd" path="res://cone.jpg" id="3_kg5e7"]
+[ext_resource type="Texture2D" uid="uid://rj0qq1had4nd" path="res://assets/cone.jpg" id="3_kg5e7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_44c3d"]
 radius = 13.038404

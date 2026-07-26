@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bjr12x1y48d5h" path="res://assets/player.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://bdqlr00r0hp8y" path="res://scripts/player.gd" id="1_onrkg"]
-[ext_resource type="Shader" uid="uid://dshv06yn78bbi" path="res://compass.gdshader" id="2_sweqy"]
+[ext_resource type="Shader" uid="uid://dshv06yn78bbi" path="res://scripts/compass.gdshader" id="2_sweqy"]
 [ext_resource type="Texture2D" uid="uid://b0uvsk7bd4x2e" path="res://assets/pointer_toon_a.png" id="4_hqtel"]
 [ext_resource type="Texture2D" uid="uid://dgkk220rcjt86" path="res://assets/bomb/pngkey.com-csgo-bomb-png-8268571.png" id="5_2hs0m"]
 [ext_resource type="FontFile" uid="uid://cssl7kt7xmxoh" path="res://assets/bomb/GeistPixel-Regular-VariableFont_ELSH.ttf" id="6_1jxqw"]

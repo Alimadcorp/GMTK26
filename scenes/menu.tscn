@@ -1,20 +1,20 @@
 [gd_scene format=3 uid="uid://dr4wt6exncjba"]
 
-[ext_resource type="Texture2D" uid="uid://dkac4lep2yisw" path="res://white.png" id="1_iqepy"]
-[ext_resource type="Texture2D" uid="uid://c73rtcelpb1l1" path="res://assets/menu/flashlight.tres" id="1_ouk20"]
-[ext_resource type="Script" uid="uid://cl32ss1qu88ui" path="res://scripts/point_light_2d.gd" id="2_mae5d"]
-[ext_resource type="Script" uid="uid://csg8qvjwr21ny" path="res://scripts/start.gd" id="3_ecwwl"]
-[ext_resource type="Script" uid="uid://5f4yre33wgpc" path="res://scripts/settings.gd" id="4_l48gv"]
-[ext_resource type="Texture2D" uid="uid://d0o0rfsauunc5" path="res://assets/menu/button_rectangle_depth_gradient.svg" id="5_kk3ma"]
-[ext_resource type="Script" uid="uid://dd4id2ry7kd0o" path="res://scripts/quit.gd" id="6_kk3ma"]
-[ext_resource type="Texture2D" uid="uid://b203uk7bd1rua" path="res://assets/menu/button_rectangle_depth_flat.svg" id="6_nrnbx"]
-[ext_resource type="FontFile" uid="uid://2sbnayq5va72" path="res://assets/menu/FontdinerSwanky-Regular.ttf" id="7_ecwwl"]
-[ext_resource type="FontFile" uid="uid://cssl7kt7xmxoh" path="res://assets/bomb/GeistPixel-Regular-VariableFont_ELSH.ttf" id="9_nrnbx"]
-[ext_resource type="Script" uid="uid://c0il3nwhr6yif" path="res://titl.gd" id="11_h1wq0"]
-[ext_resource type="AudioStream" uid="uid://uomqg7pp2sc7" path="res://assets/psychronic-continued-investigation-21863.mp3" id="12_dwrpx"]
+[ext_resource type="Texture2D" uid="uid://dkac4lep2yisw" path="res://assets/white.png" id="1_ufwb2"]
+[ext_resource type="Texture2D" uid="uid://d0o0rfsauunc5" path="res://assets/menu/button_rectangle_depth_gradient.svg" id="2_6cdou"]
+[ext_resource type="Texture2D" uid="uid://b203uk7bd1rua" path="res://assets/menu/button_rectangle_depth_flat.svg" id="3_i42df"]
+[ext_resource type="Script" uid="uid://csg8qvjwr21ny" path="res://scripts/start.gd" id="4_7jp70"]
+[ext_resource type="FontFile" uid="uid://2sbnayq5va72" path="res://assets/menu/FontdinerSwanky-Regular.ttf" id="5_mxgkd"]
+[ext_resource type="Script" uid="uid://5f4yre33wgpc" path="res://scripts/settings.gd" id="6_g6gyw"]
+[ext_resource type="Script" uid="uid://dd4id2ry7kd0o" path="res://scripts/quit.gd" id="7_3dmrc"]
+[ext_resource type="Texture2D" uid="uid://c73rtcelpb1l1" path="res://assets/menu/flashlight.tres" id="8_81l6r"]
+[ext_resource type="Script" uid="uid://cl32ss1qu88ui" path="res://scripts/point_light_2d.gd" id="9_rsfmq"]
+[ext_resource type="Script" uid="uid://c0il3nwhr6yif" path="res://scripts/titl.gd" id="10_oi1it"]
+[ext_resource type="AudioStream" uid="uid://uomqg7pp2sc7" path="res://assets/psychronic-continued-investigation-21863.mp3" id="11_fy8yy"]
+[ext_resource type="FontFile" uid="uid://cssl7kt7xmxoh" path="res://assets/bomb/GeistPixel-Regular-VariableFont_ELSH.ttf" id="12_6wigr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_epuwg"]
-font = ExtResource("7_ecwwl")
+font = ExtResource("5_mxgkd")
 font_size = 40
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_44c3d"]
@@ -30,7 +30,7 @@ color = Color(0.09655165, 0.032418214, 0.22063982, 1)
 [node name="Black" type="Sprite2D" parent="." unique_id=854929332]
 position = Vector2(630.9999, 359.00003)
 scale = Vector2(14.375, 8.515625)
-texture = ExtResource("1_iqepy")
+texture = ExtResource("1_ufwb2")
 
 [node name="Buttons" type="VBoxContainer" parent="." unique_id=1986460657]
 anchors_preset = 8
@@ -49,11 +49,11 @@ theme_override_constants/separation = 23
 [node name="Start" type="TextureButton" parent="Buttons" unique_id=589541392]
 custom_minimum_size = Vector2(300, 80)
 layout_mode = 2
-texture_normal = ExtResource("5_kk3ma")
-texture_pressed = ExtResource("6_nrnbx")
+texture_normal = ExtResource("2_6cdou")
+texture_pressed = ExtResource("3_i42df")
 ignore_texture_size = true
 stretch_mode = 0
-script = ExtResource("3_ecwwl")
+script = ExtResource("4_7jp70")
 
 [node name="Start" type="Label" parent="Buttons/Start" unique_id=1883399691]
 layout_mode = 0
@@ -70,11 +70,11 @@ occluder = SubResource("OccluderPolygon2D_44c3d")
 [node name="Settings" type="TextureButton" parent="Buttons" unique_id=1245215250]
 custom_minimum_size = Vector2(300, 80)
 layout_mode = 2
-texture_normal = ExtResource("5_kk3ma")
-texture_pressed = ExtResource("6_nrnbx")
+texture_normal = ExtResource("2_6cdou")
+texture_pressed = ExtResource("3_i42df")
 ignore_texture_size = true
 stretch_mode = 0
-script = ExtResource("4_l48gv")
+script = ExtResource("6_g6gyw")
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="Buttons/Settings" unique_id=711088366]
 occluder = SubResource("OccluderPolygon2D_44c3d")
@@ -91,11 +91,11 @@ label_settings = SubResource("LabelSettings_epuwg")
 [node name="Quit" type="TextureButton" parent="Buttons" unique_id=1963349225]
 custom_minimum_size = Vector2(300, 80)
 layout_mode = 2
-texture_normal = ExtResource("5_kk3ma")
-texture_pressed = ExtResource("6_nrnbx")
+texture_normal = ExtResource("2_6cdou")
+texture_pressed = ExtResource("3_i42df")
 ignore_texture_size = true
 stretch_mode = 0
-script = ExtResource("6_kk3ma")
+script = ExtResource("7_3dmrc")
 
 [node name="LightOccluder2D3" type="LightOccluder2D" parent="Buttons/Quit" unique_id=1674115367]
 occluder = SubResource("OccluderPolygon2D_44c3d")
@@ -116,13 +116,13 @@ energy = 1.5
 shadow_enabled = true
 shadow_color = Color(0.63719434, 0.32010862, 0.28719968, 0.31764707)
 shadow_filter = 1
-texture = ExtResource("1_ouk20")
+texture = ExtResource("8_81l6r")
 texture_scale = 0.45
-script = ExtResource("2_mae5d")
+script = ExtResource("9_rsfmq")
 
 [node name="title" type="Node2D" parent="." unique_id=2124680337]
 position = Vector2(216.5, 62)
-script = ExtResource("11_h1wq0")
+script = ExtResource("10_oi1it")
 
 [node name="Label" type="Label" parent="title" unique_id=1576858959]
 anchors_preset = 5
@@ -135,7 +135,7 @@ offset_bottom = 160.0
 grow_horizontal = 2
 scale = Vector2(0.75, 0.75)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("7_ecwwl")
+theme_override_fonts/font = ExtResource("5_mxgkd")
 theme_override_font_sizes/font_size = 84
 text = "game name here"
 horizontal_alignment = 1
@@ -147,7 +147,7 @@ position = Vector2(-5.5, 0)
 occluder = SubResource("OccluderPolygon2D_dwrpx")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2003893198]
-stream = ExtResource("12_dwrpx")
+stream = ExtResource("11_fy8yy")
 autoplay = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=593364966]
@@ -177,7 +177,7 @@ grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("9_nrnbx")
+theme_override_fonts/font = ExtResource("12_6wigr")
 theme_override_font_sizes/font_size = 24
 text = "Credits:
 Alimadcorp
@@ -196,7 +196,7 @@ offset_top = 366.0
 offset_right = 376.0
 offset_bottom = 629.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("9_nrnbx")
+theme_override_fonts/font = ExtResource("12_6wigr")
 theme_override_font_sizes/font_size = 34
 text = "WASD to move
 Click to pick
