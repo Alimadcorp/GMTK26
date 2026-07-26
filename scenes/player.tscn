@@ -34,8 +34,6 @@ shader = ExtResource("2_sweqy")
 
 [node name="Player" type="CharacterBody2D" unique_id=419964917 groups=["player"]]
 script = ExtResource("1_onrkg")
-speed = null
-bat = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=686461135]
 shape = SubResource("CircleShape2D_44c3d")
@@ -135,6 +133,20 @@ theme_override_font_sizes/font_size = 128
 text = "3:00"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer/bomb/Panel/TextureRect" unique_id=979554223]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.132
+anchor_bottom = 0.026
+offset_left = -292.0
+offset_top = 944.0
+offset_right = 544.71204
+offset_bottom = 1180.912
+theme_override_fonts/font = ExtResource("6_1jxqw")
+theme_override_font_sizes/font_size = 47
+text = "Walk away to dismiss
+You might need pliers if u dont already have :>"
 
 [node name="red" type="Button" parent="CanvasLayer/bomb/Panel/TextureRect" unique_id=1023420664]
 layout_mode = 0

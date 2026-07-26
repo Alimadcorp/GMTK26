@@ -62,7 +62,7 @@ func _process(delta: float) -> void:
 	else:
 		Input.set_custom_mouse_cursor(null)
 
-func update_heartbeat(manager: Node, time: float) -> void: #Plays when timer is at 10 seconds, gets higher near 0
+func update_heartbeat(manager: Node, time: float) -> void: 
 	if manager.state == "ticking" and time <= 10.0 and time > 0.0:
 		var progress : float = 1.0 - clamp(time / 10.0, 0.0, 1.0)
 		heartbeat_sfx.volume_db = lerp(0.0, 15.0, progress)
@@ -215,7 +215,7 @@ func tut(id: String) -> void:
 		txt("i should check the fuse box", 4.0)
 		tut_tgt = get_tree().get_first_node_in_group("fuse_box")
 	elif id == "oh_shit":
-		txt("ts has been sabotaged :noooovanish:", 4.0)
+		txt("someone has sabotaged this.. i should look around", 4.0)
 
 func no_tut() -> void:
 	tut_tgt = null

@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://dmsgwhosupamw" path="res://scenes/pliers.tscn" id="11_mfdv2"]
 [ext_resource type="PackedScene" uid="uid://bdgbuuc3nyq70" path="res://scenes/key.tscn" id="12_iotsf"]
 [ext_resource type="PackedScene" uid="uid://duvhimkep2oyo" path="res://scenes/note.tscn" id="16_80cx4"]
+[ext_resource type="Texture2D" uid="uid://cf7t7a305mofa" path="res://assets/arrow.png" id="17_ssvqc"]
+[ext_resource type="FontFile" uid="uid://2sbnayq5va72" path="res://assets/menu/FontdinerSwanky-Regular.ttf" id="18_264po"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_eow3j"]
 polygon = PackedVector2Array(-64, 64, -28.34497, 64, -26.57341, -29.230751, 64, -29.230751, 64, -64, -64, -64)
@@ -715,22 +717,19 @@ scale = Vector2(6.2172422, 6.2172422)
 [node name="BOMB" parent="." unique_id=1638691013 groups=["item"] instance=ExtResource("7_eow3j")]
 position = Vector2(-1322, 3445)
 scale = Vector2(0.2, 0.2)
-req = "cutter"
 
 [node name="BOMB2" parent="." unique_id=687908609 groups=["item"] instance=ExtResource("7_eow3j")]
 position = Vector2(-11444, 5822)
 scale = Vector2(0.2, 0.2)
-req = "cutter"
 
 [node name="BOMB3" parent="." unique_id=36222250 groups=["item"] instance=ExtResource("7_eow3j")]
 position = Vector2(-6954.0005, -4669)
 scale = Vector2(0.2, 0.2)
-req = "cutter"
 
 [node name="BOMB4" parent="." unique_id=824560260 groups=["item"] instance=ExtResource("7_eow3j")]
 position = Vector2(8893, -2860)
 scale = Vector2(0.2, 0.2)
-req = "cutter"
+req = "key"
 
 [node name="Pliers" parent="." unique_id=611076829 instance=ExtResource("11_mfdv2")]
 position = Vector2(11115, 6130.9995)
@@ -743,7 +742,15 @@ scale = Vector2(0.085, 0.085)
 [node name="note" parent="." unique_id=1223870774 instance=ExtResource("16_80cx4")]
 position = Vector2(390, 225)
 
+[node name="note6" parent="." unique_id=576815202 instance=ExtResource("16_80cx4")]
+position = Vector2(-2629, 3331)
+tex = "pliers in the bottom right room at the bottom right room"
+
 [node name="note2" parent="." unique_id=1291323755 instance=ExtResource("16_80cx4")]
+position = Vector2(7128, 3525)
+tex = "u need a key"
+
+[node name="note7" parent="." unique_id=657675608 instance=ExtResource("16_80cx4")]
 position = Vector2(7259, 1177)
 tex = "6767"
 
@@ -758,5 +765,80 @@ tex = "bot right black"
 [node name="note5" parent="." unique_id=136805368 instance=ExtResource("16_80cx4")]
 position = Vector2(-3652, 6599)
 tex = "bot left yellow"
+
+[node name="Arrow" type="Sprite2D" parent="." unique_id=1075359762]
+position = Vector2(4012, 2851)
+scale = Vector2(2.95, 2.95)
+texture = ExtResource("17_ssvqc")
+
+[node name="Label" type="Label" parent="Arrow" unique_id=1692513383]
+offset_left = -44.067795
+offset_top = 6.4406767
+offset_right = 372.9322
+offset_bottom = 113.440674
+theme_override_fonts/font = ExtResource("18_264po")
+theme_override_font_sizes/font_size = 32
+text = "pliers might be
+this way..."
+
+[node name="Arrow2" type="Sprite2D" parent="." unique_id=1413601004]
+position = Vector2(-6952.9995, -5649.9995)
+rotation = 2.2117789
+scale = Vector2(2.95, 2.95)
+texture = ExtResource("17_ssvqc")
+
+[node name="Label" type="Label" parent="Arrow2" unique_id=1705987930]
+offset_left = -44.067795
+offset_top = 6.4406767
+offset_right = 372.9322
+offset_bottom = 113.440674
+theme_override_fonts/font = ExtResource("18_264po")
+theme_override_font_sizes/font_size = 32
+text = "bomb :skulk:"
+
+[node name="Arrow3" type="Sprite2D" parent="." unique_id=957447883]
+position = Vector2(6954, -5362)
+rotation = 0.72713256
+scale = Vector2(2.95, 2.95)
+texture = ExtResource("17_ssvqc")
+
+[node name="Label" type="Label" parent="Arrow3" unique_id=1740149363]
+offset_left = -44.067795
+offset_top = 6.4406767
+offset_right = 372.9322
+offset_bottom = 113.440674
+theme_override_fonts/font = ExtResource("18_264po")
+theme_override_font_sizes/font_size = 32
+text = "bomb :skulk:"
+
+[node name="Arrow4" type="Sprite2D" parent="." unique_id=715420145]
+position = Vector2(-5673, -474.00098)
+rotation = 0.93326753
+scale = Vector2(2.95, 2.95)
+texture = ExtResource("17_ssvqc")
+
+[node name="Label" type="Label" parent="Arrow4" unique_id=875613020]
+offset_left = -44.067795
+offset_top = 6.4406767
+offset_right = 372.9322
+offset_bottom = 113.440674
+theme_override_fonts/font = ExtResource("18_264po")
+theme_override_font_sizes/font_size = 32
+text = "key might be there"
+
+[node name="Arrow5" type="Sprite2D" parent="." unique_id=1337180830]
+position = Vector2(-5277.9995, 2197.0002)
+rotation = 2.2539318
+scale = Vector2(2.95, 2.95)
+texture = ExtResource("17_ssvqc")
+
+[node name="Label" type="Label" parent="Arrow5" unique_id=1254347759]
+offset_left = -44.067795
+offset_top = 6.4406767
+offset_right = 372.9322
+offset_bottom = 113.440674
+theme_override_fonts/font = ExtResource("18_264po")
+theme_override_font_sizes/font_size = 32
+text = "key might be there"
 
 [connection signal="body_entered" from="Door/Area2D" to="Door" method="_on_area_2d_body_entered"]
