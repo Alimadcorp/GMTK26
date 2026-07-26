@@ -536,7 +536,7 @@ sources/0 = SubResource("TileSetAtlasSource_vef74")
 script = ExtResource("1_e2o6t")
 
 [node name="FuseBox" parent="." unique_id=880123044 groups=["item"] instance=ExtResource("2_fc0e3")]
-position = Vector2(447.99988, -570.00037)
+position = Vector2(-1301, -2191)
 scale = Vector2(6.2, 6.2)
 
 [node name="Player" parent="." unique_id=419964917 instance=ExtResource("2_feb5d")]
@@ -593,7 +593,7 @@ position = Vector2(-11444, 5822)
 scale = Vector2(0.2, 0.2)
 
 [node name="BOMB3" parent="." unique_id=36222250 groups=["item"] instance=ExtResource("7_eow3j")]
-position = Vector2(-74.00049, -530.0001)
+position = Vector2(-6925.9995, -2168)
 scale = Vector2(0.2, 0.2)
 
 [node name="BOMB4" parent="." unique_id=824560260 groups=["item"] instance=ExtResource("7_eow3j")]
