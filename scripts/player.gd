@@ -186,7 +186,7 @@ func tut(id: String) -> void:
 		txt("i should check the fuse box", 4.0)
 		tut_tgt = get_tree().get_first_node_in_group("fuse_box")
 	elif id == "oh_shit":
-		txt("ts has been sabotaged :noooovanish:", 4.0)
+		txt("someone messed with the fuse box, I should look around", 4.0)
 
 func no_tut() -> void:
 	tut_tgt = null

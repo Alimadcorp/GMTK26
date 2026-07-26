@@ -536,7 +536,7 @@ sources/0 = SubResource("TileSetAtlasSource_vef74")
 script = ExtResource("1_e2o6t")
 
 [node name="FuseBox" parent="." unique_id=880123044 groups=["item"] instance=ExtResource("2_fc0e3")]
-position = Vector2(-1286, -2176)
+position = Vector2(447.99988, -570.00037)
 scale = Vector2(6.2, 6.2)
 
 [node name="Player" parent="." unique_id=419964917 instance=ExtResource("2_feb5d")]
@@ -562,9 +562,6 @@ volume_db = -2.678
 max_distance = 4096.0
 attenuation = 1e-05
 
-[node name="Exp" type="AudioStreamPlayer" parent="." unique_id=1337210773]
-autoplay = true
-
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1430420417]
 
 [node name="Base" type="TileMapLayer" parent="." unique_id=2091513461]
@@ -584,7 +581,7 @@ tile_map_data = PackedByteArray("AAD/////AAABAAAAAAD//wAAAAABAAEAAAD//wEAAAABAAI
 tile_set = SubResource("TileSet_eow3j")
 
 [node name="Torch" parent="." unique_id=1392984769 instance=ExtResource("5_7jktm")]
-position = Vector2(6117, -4665)
+position = Vector2(437, -41)
 scale = Vector2(6.2172422, 6.2172422)
 
 [node name="BOMB" parent="." unique_id=1638691013 groups=["item"] instance=ExtResource("7_eow3j")]
@@ -596,7 +593,7 @@ position = Vector2(-11444, 5822)
 scale = Vector2(0.2, 0.2)
 
 [node name="BOMB3" parent="." unique_id=36222250 groups=["item"] instance=ExtResource("7_eow3j")]
-position = Vector2(-7071.0005, -2414.999)
+position = Vector2(-74.00049, -530.0001)
 scale = Vector2(0.2, 0.2)
 
 [node name="BOMB4" parent="." unique_id=824560260 groups=["item"] instance=ExtResource("7_eow3j")]
