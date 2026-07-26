@@ -69,5 +69,21 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Back"
 
+[node name="Button2" type="Button" parent="." unique_id=889776020]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -265.0
+offset_right = 46.0
+offset_bottom = -234.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Silly button"
+
 [connection signal="toggled" from="FullscreenControl" to="FullscreenControl" method="_on_toggled"]
 [connection signal="pressed" from="Button" to="FullscreenControl" method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="FullscreenControl" method="_on_button_2_pressed"]
