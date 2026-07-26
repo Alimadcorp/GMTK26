@@ -717,10 +717,12 @@ scale = Vector2(6.2172422, 6.2172422)
 [node name="BOMB" parent="." unique_id=1638691013 groups=["item"] instance=ExtResource("7_eow3j")]
 position = Vector2(-1322, 3445)
 scale = Vector2(0.2, 0.2)
+wire = "black"
 
 [node name="BOMB2" parent="." unique_id=687908609 groups=["item"] instance=ExtResource("7_eow3j")]
 position = Vector2(-11444, 5822)
 scale = Vector2(0.2, 0.2)
+wire = "yellow"
 
 [node name="BOMB3" parent="." unique_id=36222250 groups=["item"] instance=ExtResource("7_eow3j")]
 position = Vector2(-6954.0005, -4669)
