@@ -167,6 +167,7 @@ scale = Vector2(1.399999, 1.399999)
 stream = ExtResource("7_1jxqw")
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=2039501867]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
