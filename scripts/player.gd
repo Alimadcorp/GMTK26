@@ -254,6 +254,9 @@ func setcorwire(wire):
 	current_correct_wire = wire
 
 func _on_red_pressed() -> void:
+	print("red pressed")
+	print(pliers)
+	print(shouldpliers)
 	if not pliers or not shouldpliers: return
 	if current_correct_wire != "red":
 		expl()
@@ -263,9 +266,11 @@ func _on_red_pressed() -> void:
 		toggle_bomb(false, false)
 
 func _on_yellow_pressed() -> void:
+	print("yellow pressed")
+	print(pliers)
+	print(shouldpliers)
 	if not pliers or not shouldpliers: return
 	if current_correct_wire != "yellow":
-		print("yellow pressed and exploded")
 		expl()
 	else:
 		get_tree().current_scene.defuse()
@@ -273,6 +278,9 @@ func _on_yellow_pressed() -> void:
 		toggle_bomb(false, false)
 
 func _on_black_pressed() -> void:
+	print("black pressed")
+	print(pliers)
+	print(shouldpliers)
 	if not pliers or not shouldpliers: return
 	if current_correct_wire != "black":
 		expl()
