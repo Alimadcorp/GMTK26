@@ -9,7 +9,6 @@
 [ext_resource type="Script" uid="uid://dd4id2ry7kd0o" path="res://scripts/quit.gd" id="7_3dmrc"]
 [ext_resource type="Texture2D" uid="uid://c73rtcelpb1l1" path="res://assets/menu/flashlight.tres" id="8_81l6r"]
 [ext_resource type="Script" uid="uid://cl32ss1qu88ui" path="res://scripts/point_light_2d.gd" id="9_rsfmq"]
-[ext_resource type="Script" uid="uid://c0il3nwhr6yif" path="res://scripts/titl.gd" id="10_oi1it"]
 [ext_resource type="AudioStream" uid="uid://uomqg7pp2sc7" path="res://assets/psychronic-continued-investigation-21863.mp3" id="11_fy8yy"]
 [ext_resource type="FontFile" uid="uid://cssl7kt7xmxoh" path="res://assets/bomb/GeistPixel-Regular-VariableFont_ELSH.ttf" id="12_6wigr"]
 
@@ -122,7 +121,6 @@ script = ExtResource("9_rsfmq")
 
 [node name="title" type="Node2D" parent="." unique_id=2124680337]
 position = Vector2(216.5, 62)
-script = ExtResource("10_oi1it")
 
 [node name="Label" type="Label" parent="title" unique_id=1576858959]
 anchors_preset = 5
@@ -143,6 +141,7 @@ vertical_alignment = 1
 text_overrun_behavior = 5
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="title" unique_id=1502311356]
+visible = false
 position = Vector2(-5.5, 0)
 occluder = SubResource("OccluderPolygon2D_dwrpx")
 

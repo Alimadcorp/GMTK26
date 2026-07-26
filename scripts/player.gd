@@ -31,7 +31,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if Input.is_key_pressed(KEY_ESCAPE):
-		get_tree().change_scene_to_file("res://menu.tscn")
+		get_tree().change_scene_to_file("res://scenes/menu.tscn")
 	if spd > 1:
 		move()
 		look()
