@@ -5,4 +5,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		if body.has("key"):
 			body.consume_item("key")
-			get_parent().queue_free()
+			queue_free()
