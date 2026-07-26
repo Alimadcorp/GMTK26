@@ -97,7 +97,7 @@ func keys() -> void:
 		drop_left_hand()
 
 func _input(event: InputEvent) -> void:
-	if $CanvasLayer/bomb.visible and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if is_instance_valid(tgt):
 			if tgt.has_method("use"):
 				tgt.use()
