@@ -234,7 +234,7 @@ func expl():
 	toggle_bomb(false, false)
 	$CanvasLayer/VideoStreamPlayer.visible = true
 	$CanvasLayer/VideoStreamPlayer.play()
-	await get_tree().create_timer(1.7).timeout
+	await get_tree().create_timer(1.8).timeout
 	get_tree().reload_current_scene()
 
 func toggle_bomb(val: bool, plier: bool):
@@ -260,6 +260,7 @@ func _on_red_pressed() -> void:
 func _on_yellow_pressed() -> void:
 	if not pliers or not shouldpliers: return
 	if current_correct_wire != "yellow":
+		print("yellow pressed and exploded")
 		expl()
 	else:
 		get_tree().current_scene.defuse()
