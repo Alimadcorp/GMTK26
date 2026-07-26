@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var max_time: float = 180.0 #The  bomb time I think (default to 300) / 10 min
+@export var max_time: float = 10.0 #The  bomb time I think (default to 300) / 10 min
 
 @export var stages_count: int = 6
 
@@ -43,7 +43,4 @@ func defuse() -> void:
 		state = "won"
 
 func boom() -> void:
-	state = "lost"
 	$Player.expl()
-	await get_tree().create_timer(6).timeout
-	get_tree().reload_current_scene()

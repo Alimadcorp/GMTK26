@@ -24,7 +24,5 @@ position = Vector2(11, 0)
 rotation = -1.5707964
 energy = 2.0
 shadow_enabled = true
-shadow_color = Color(0.10249352, 0.10249352, 0.10249352, 0)
-shadow_filter = 1
 texture = ExtResource("3_kg5e7")
 texture_scale = 2.0

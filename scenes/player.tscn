@@ -44,7 +44,6 @@ rotation = -1.5707964
 scale = Vector2(0.7015873, 0.6442308)
 energy = 0.2
 shadow_enabled = true
-shadow_filter = 1
 texture = SubResource("GradientTexture2D_i3pqv")
 texture_scale = 50.0
 
@@ -247,8 +246,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.399999, 1.399999)
 stream = ExtResource("7_1jxqw")
+volume_db = 2.3400002
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=2039501867]
 visible = false

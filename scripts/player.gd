@@ -229,8 +229,11 @@ func upd_comp() -> void:
 		comp.visible = false
 
 func expl():
+	get_tree().current_scene.state = "lost"
 	toggle_bomb(false, false)
 	$CanvasLayer/VideoStreamPlayer.play()
+	await get_tree().create_timer(1.7).timeout
+	get_tree().reload_current_scene()
 
 func toggle_bomb(val: bool, plier: bool):
 	$CanvasLayer/bomb.visible = val
