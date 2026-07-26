@@ -133,25 +133,30 @@ Q to drop
 T for torch
 E to interact"
 
-[node name="titl" type="Node2D" parent="." unique_id=2124680337]
+[node name="title" type="Node2D" parent="." unique_id=2124680337]
 position = Vector2(216.5, 62)
 script = ExtResource("11_h1wq0")
 
-[node name="Label" type="Label" parent="titl" unique_id=1576858959]
+[node name="Label" type="Label" parent="title" unique_id=1576858959]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_right = 734.0
-offset_bottom = 128.0
+offset_left = 100.5
+offset_top = 32.0
+offset_right = 834.5
+offset_bottom = 160.0
 grow_horizontal = 2
+scale = Vector2(0.75, 0.75)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_ecwwl")
 theme_override_font_sizes/font_size = 84
-text = "TITLE GO HERE"
+text = "game name here"
 horizontal_alignment = 1
 vertical_alignment = 1
+text_overrun_behavior = 5
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="titl" unique_id=1502311356]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="title" unique_id=1502311356]
+position = Vector2(-5.5, 0)
 occluder = SubResource("OccluderPolygon2D_dwrpx")
 
 [connection signal="pressed" from="Buttons/Start" to="Buttons/Start" method="_on_pressed"]
