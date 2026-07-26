@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://2sbnayq5va72" path="res://assets/menu/FontdinerSwanky-Regular.ttf" id="7_ecwwl"]
 [ext_resource type="FontFile" uid="uid://cssl7kt7xmxoh" path="res://assets/bomb/GeistPixel-Regular-VariableFont_ELSH.ttf" id="9_nrnbx"]
 [ext_resource type="Script" uid="uid://c0il3nwhr6yif" path="res://titl.gd" id="11_h1wq0"]
+[ext_resource type="AudioStream" uid="uid://uomqg7pp2sc7" path="res://assets/psychronic-continued-investigation-21863.mp3" id="12_dwrpx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_epuwg"]
 font = ExtResource("7_ecwwl")
@@ -24,7 +25,7 @@ polygon = PackedVector2Array(1, -2, 295, 2, 296, 78, 3, 76)
 [node name="Control" type="Node2D" unique_id=812795505]
 
 [node name="Shadow" type="CanvasModulate" parent="." unique_id=1855643198]
-color = Color(0.066070534, 0.06607054, 0.066070504, 1)
+color = Color(0.09655165, 0.032418214, 0.22063982, 1)
 
 [node name="Black" type="Sprite2D" parent="." unique_id=854929332]
 position = Vector2(630.9999, 359.00003)
@@ -119,20 +120,6 @@ texture = ExtResource("1_ouk20")
 texture_scale = 0.45
 script = ExtResource("2_mae5d")
 
-[node name="Label" type="Label" parent="." unique_id=1709863637]
-offset_left = 35.0
-offset_top = 366.0
-offset_right = 376.0
-offset_bottom = 629.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("9_nrnbx")
-theme_override_font_sizes/font_size = 34
-text = "WASD to move
-Click to pick
-Q to drop
-T for torch
-E to interact"
-
 [node name="title" type="Node2D" parent="." unique_id=2124680337]
 position = Vector2(216.5, 62)
 script = ExtResource("11_h1wq0")
@@ -158,6 +145,63 @@ text_overrun_behavior = 5
 [node name="LightOccluder2D" type="LightOccluder2D" parent="title" unique_id=1502311356]
 position = Vector2(-5.5, 0)
 occluder = SubResource("OccluderPolygon2D_dwrpx")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2003893198]
+stream = ExtResource("12_dwrpx")
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=593364966]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=729851185]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Credits" type="Label" parent="CanvasLayer/Control" unique_id=1090172742]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -381.0
+offset_top = -303.0
+offset_right = -40.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_nrnbx")
+theme_override_font_sizes/font_size = 24
+text = "Credits:
+Alimadcorp
+SlayerArman
+reddyannnna
+YapperDev
+karnxx
+gnahiak2
+kocio07"
+horizontal_alignment = 2
+
+[node name="ControlsGuide" type="Label" parent="CanvasLayer/Control" unique_id=1709863637]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 366.0
+offset_right = 376.0
+offset_bottom = 629.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_nrnbx")
+theme_override_font_sizes/font_size = 34
+text = "WASD to move
+Click to pick
+Q to drop
+T for torch
+E to interact"
 
 [connection signal="pressed" from="Buttons/Start" to="Buttons/Start" method="_on_pressed"]
 [connection signal="pressed" from="Buttons/Settings" to="Buttons/Settings" method="_on_pressed"]
