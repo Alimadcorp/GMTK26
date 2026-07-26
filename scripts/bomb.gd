@@ -6,8 +6,11 @@ var done: bool = false
 var near: bool = false
 
 @export var wire = "red"
-@export var beep_interval: float = 1
-@export var beep_duration: float = 0.15
+
+@export_group("Beep Settings")
+@export var min_beep_interval: float = 0.15
+@export var max_beep_interval: float = 1.0
+@export var beep_duration: float = 0.15 
 
 @onready var beep_player: AudioStreamPlayer2D = $BeepSFX
 var beep_timer: float = 0.0
@@ -22,11 +25,17 @@ func _process(delta: float) -> void:
 		return
 
 	if manager.state == "ticking":
+		var time_ratio: float = 1.0
+		if "time_remaining" in manager and "total_time" in manager and manager.total_time > 0:
+			time_ratio = clamp(manager.time_remaining / manager.total_time, 0.0, 1.0)
+		
+		var current_interval: float = lerpf(min_beep_interval, max_beep_interval, time_ratio)
+
 		beep_timer -= delta
 		if beep_player.playing:
 			if beep_timer <= 0.0:
 				beep_player.stop()
-				beep_timer = max(beep_interval - beep_duration, 0.0)
+				beep_timer = max(current_interval - beep_duration, 0.01)
 		elif beep_timer <= 0.0:
 			beep_player.play()
 			beep_timer = max(beep_duration, 0.01)
@@ -34,15 +43,6 @@ func _process(delta: float) -> void:
 		if beep_player.playing:
 			beep_player.stop()
 		beep_timer = 0.0
-
-#func use() -> void:
-	#if near and not done and req == 'key':
-		#var p = get_tree().get_first_node_in_group("player")
-		#if p and p.has_item(req):
-			#p.consume_item(req)
-			#done = true
-			#get_tree().current_scene.defuse()
-			#queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
 	if get_tree().current_scene.state != "ticking": return
