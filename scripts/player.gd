@@ -55,7 +55,7 @@ func _process(delta: float) -> void:
 	if has_node("CanvasLayer/bomb/Panel/TextureRect/Label"):
 		$CanvasLayer/bomb/Panel/TextureRect/Label.text = text
 		
-	if $CanvasLayer/bomb.visible and pliers and shouldpliers:
+	if $CanvasLayer/bomb.visible and has("pliers") and shouldpliers:
 		Input.set_custom_mouse_cursor(preload("res://assets/bomb/plieropen.png"))
 		if Input.is_action_pressed("lmb"):
 			Input.set_custom_mouse_cursor(preload("res://assets/bomb/plierclose.png"))
@@ -232,6 +232,7 @@ func upd_comp() -> void:
 func expl():
 	get_tree().current_scene.state = "lost"
 	toggle_bomb(false, false)
+	$CanvasLayer/VideoStreamPlayer.visible = true
 	$CanvasLayer/VideoStreamPlayer.play()
 	await get_tree().create_timer(1.7).timeout
 	get_tree().reload_current_scene()
